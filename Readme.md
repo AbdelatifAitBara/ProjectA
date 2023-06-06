@@ -3,10 +3,10 @@
 
 Prerequisites:
 
-Before installing Odoo, make sure you have the following:
+Before starting, make sure you have the following:
 
-- A CentOS server
-- Root access or a user with sudo privileges
+- Vagrant, Download from [here]([quora.com/profile/Ashish-Kulkarni-100](https://developer.hashicorp.com/vagrant/downloads)).
+- Root access or a user with sudo privileges 
 - Python version >= 3.7 installed on your system
 
 This is the first commit to the repository
