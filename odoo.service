@@ -1,0 +1,16 @@
+[Unit]
+Description=Odoo
+Requires=postgresql-14.service
+After=network.target postgresql-14.service
+
+[Service]
+Type=simple
+SyslogIdentifier=odoo
+PermissionsStartOnly=true
+User=odoo
+Group=odoo
+ExecStart=/opt/odoo/Odoo-venv/bin/python3.7 /opt/odoo/odoo/odoo-bin -c /etc/odoo.conf
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
