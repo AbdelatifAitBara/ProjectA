@@ -1,6 +1,8 @@
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/47753831-e500-4b53-a60a-cca916cd69f0)
-<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/9c906fa8-e255-4ca1-b56c-c12643e52f39" width="200" height="400" />
+
+<img src="https://user-images.githubusercontent.com/[link-to-your-image.png](https://raw.githubusercontent.com/docker-library/docs/c4df0024e2cad985326dc38f6b6ce39abeab59c5/centos/logo.png)" width="200" />
+
 
 
 Prerequisites:
