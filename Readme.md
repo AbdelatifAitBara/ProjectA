@@ -5,11 +5,11 @@
 
 # Deployement of Odoo v16, on CentOS 7.
 
-**## Inroduction:**
+## Inroduction:
 
 Odoo is a Belgian suite of business management software tools including, for example, CRM, e-commerce, billing, accounting, manufacturing, warehouse, project management, and inventory management.
 
-**## Prerequisites:**
+## Prerequisites:
 
 **Before starting, make sure you have the following:**
 
