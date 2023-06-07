@@ -23,3 +23,7 @@ Odoo is a Belgian suite of business management software tools including, for exa
 - Open your powershell.
 - Paste this command inside the terminal : git clone https://github.com/AbdelatifAitBara/ProjectA
 
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eacdfda6-1e1b-42f1-8cff-0c5d013244d2)
+
+
