@@ -21,10 +21,10 @@ fi
 printf "${BBlue}STEP 2: Installing HA Proxy...${NC}\n"
 if sudo yum -y install haproxy
 then
-    systemctl start haproxy.service
-    systemctl enable haproxy.service
     cp /vagrant/haproxy.cfg /etc/haproxy/haproxy.cfg
     sudo haproxy -f /etc/haproxy/haproxy.cfg
+    systemctl start haproxy.service
+    systemctl enable haproxy.service
     echo "@reboot sleep 60 && systemctl status haproxy.service || systemctl restart haproxy.service" >> check-haproxy
     crontab check-haproxy 
     printf "${GREEN}STEP 2: HA Proxy Has Been Installed Successfully.${NC}\n"
