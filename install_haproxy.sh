@@ -19,7 +19,7 @@ else
 fi
 
 printf "${BBlue}STEP 2: Instalation&Configuration of HAProxy ...${NC}\n"
-if 
+if  
     sudo yum -y install haproxy
     firewall-cmd --permanent --zone=public --add-service=http
     firewall-cmd --reload
