@@ -1,5 +1,18 @@
 #!/bin/bash
 
+###########################INFORATIONS##############################
+# -Project A: Deployment of Odoo V16 on CentOS7                    #
+# -Script INFO : This script will install HAproxy on CentOS7, and  #
+# configure it to be used as a load balancer.                      #
+# Server 1: will be the master, Server 2 is the slave.             #
+# If the Server 1 goes DOWN, Haproxy will send all the requests to #
+# Server 2.                                                        #
+# -Developer: DevOps Team - B - Team-B@itsgroup.fr                 #
+# -Date: 07/06/2023                                                #
+# -Version: 1.0.0                                                  #
+####################################################################
+
+
 GREEN='\033[1;32m'
 RED='\033[1;31m'
 CYAN='\033[1;36m'
