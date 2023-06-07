@@ -18,8 +18,11 @@ else
     exit 1 
 fi
 
-printf "${BBlue}STEP 2: Installing HA Proxy...${NC}\n"
-if sudo yum -y install haproxy
+printf "${BBlue}STEP 2: Instalation&Configuration of HAProxy ...${NC}\n"
+if 
+    sudo yum -y install haproxy
+    firewall-cmd --permanent --zone=public --add-service=http
+    firewall-cmd --reload
 then
     cp /vagrant/haproxy.cfg /etc/haproxy/haproxy.cfg
     sudo haproxy -f /etc/haproxy/haproxy.cfg
@@ -27,7 +30,7 @@ then
     systemctl enable haproxy.service
     echo "@reboot sleep 60 && systemctl status haproxy.service || systemctl restart haproxy.service" >> check-haproxy
     crontab check-haproxy 
-    printf "${GREEN}STEP 2: HA Proxy Has Been Installed Successfully.${NC}\n"
+    printf "${GREEN}STEP 2: HA Proxy Has Been Installed&Configured Successfully.${NC}\n"
 else
     printf "${RED}Error: During The STEP 2...${NC}\n"
     exit 1
