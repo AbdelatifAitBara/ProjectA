@@ -21,11 +21,11 @@ fi
 printf "${BBlue}STEP 2: Instalation&Configuration of HAProxy ...${NC}\n"
 if  
     sudo yum -y install haproxy
-    firewall-cmd --permanent --zone=public --add-service=http
-    firewall-cmd --reload
+    #firewall-cmd --zone=public --add-port=8069/tcp --permanent
+    #firewall-cmd --reload
 then
     cp /vagrant/haproxy.cfg /etc/haproxy/haproxy.cfg
-    sudo haproxy -f /etc/haproxy/haproxy.cfg
+    cp /vagrant/haproxy /etc/default/haproxy
     systemctl start haproxy.service
     systemctl enable haproxy.service
     echo "@reboot sleep 60 && systemctl status haproxy.service || systemctl restart haproxy.service" >> check-haproxy
