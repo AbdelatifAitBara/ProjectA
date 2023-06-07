@@ -4,7 +4,7 @@
 
 
 
-# Deployement of Odoo v16, on CentOS 7.
+# Deployement of Odoo v16, on CentOS 7, Using Vagrant, Virtualbox.
 
 ## Inroduction:
 
