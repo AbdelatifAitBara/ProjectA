@@ -4,7 +4,7 @@
 
 
 
-# Deployement of Odoo v16, on CentOS 7.
+# Deployement of Odoo v16, on CentOS 7, Using Vagrant, Virtualbox.
 
 ## Inroduction:
 
@@ -18,7 +18,8 @@ Odoo is a Belgian suite of business management software tools including, for exa
 - Git, Download from [Here](https://git-scm.com/downloads).
 - VirtualBox, Download from [Here](https://www.virtualbox.org/wiki/Downloads).
 
-https://assets.digitalocean.com/articles/high_availability/ha-diagram-animated.gif
+## How to clone the repository:
 
-STEP I :
+- Open your powershell.
+- Paste this command inside the terminal : git clone https://github.com/AbdelatifAitBara/ProjectA
 
