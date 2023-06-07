@@ -3,6 +3,7 @@
 
 
 
+
 # Deployement of Odoo v16, on CentOS 7.
 
 ## Inroduction:
@@ -16,11 +17,8 @@ Odoo is a Belgian suite of business management software tools including, for exa
 - Vagrant, Download from [Here](https://developer.hashicorp.com/vagrant/downloads).
 - Git, Download from [Here](https://git-scm.com/downloads).
 - VirtualBox, Download from [Here](https://www.virtualbox.org/wiki/Downloads).
-- A
-- B
-- C
-- D
-- E
+
+https://assets.digitalocean.com/articles/high_availability/ha-diagram-animated.gif
 
 STEP I :
 
