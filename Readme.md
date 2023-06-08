@@ -9,15 +9,16 @@
 
 ## Inroduction:
 
-Odoo is a Belgian suite of business management software tools including, for example, CRM, e-commerce, billing, accounting, manufacturing, warehouse, project management, and inventory management.
+- Odoo is a Belgian suite of business management software tools including, for example, CRM, e-commerce, billing, accounting, manufacturing, warehouse, project management, and inventory management.
+- Odoo is famous for its continuous advancement in the ERP domain, always presenting user-friendly upgrades to its users. The latest version of Odoo is currently Odoo 16, which was released in October 2022. 
 
 ## Prerequisites:
 
 **Before starting, make sure you have the following:**
 
-- Vagrant, Download from [Here](https://developer.hashicorp.com/vagrant/downloads).
-- Git, Download from [Here](https://git-scm.com/downloads).
-- VirtualBox, Download from [Here](https://www.virtualbox.org/wiki/Downloads).
+- Vagrant, Download from [Here](https://developer.hashicorp.com/vagrant/downloads) ( Vagrant is an open-source software product for building and maintaining portable virtual software development environments; e.g., for VirtualBox, KVM, Hyper-V, Docker containers).
+- Git, Download from [Here](https://git-scm.com/downloads) ( It is a free and open-source version control system used to handle small to very large projects efficiently. Git is used to tracking changes in the source code, enabling multiple developers to work together on non-linear development.).
+- VirtualBox, Download from [Here](https://www.virtualbox.org/wiki/Downloads) ( Oracle VM VirtualBox is cross-platform virtualization software. It allows users to extend their existing computer to run multiple operating systems including Microsoft Windows, Mac OS X, Linux, and Oracle Solaris, at the same time).
 
 ## Project goals :
 
@@ -54,9 +55,11 @@ vagrant up
 ```
 ### NOTE: The Installation will take a while (Around 50 to 60mn).
 
+## 
+
 ## Scripts Explanation :
 
-### 1- The first script "install_odoo.sh" :
+### 1- Explanation of "install_odoo.sh" :
 
 This script will allow us to :
 
@@ -70,6 +73,32 @@ This script will allow us to :
 * Start Odoo.Service And Enable Automatically
 
 NOTE: The script is capable to stop the installation, if any step of 9 goes badly.
+
+### Explanation Step By Step :
+
+### Step 1 : 
+In this step our script will update and upgrade our system automatically.
+### Step 2 : 
+In this step the script will install some packages as (openssl, openssl-devel, wget, tar, gcc, git...ect) because we need them later, also the development tools group (acts as a transitional package for installation of multiple development, compilation and debugging tools), after it will download Python3.7 as a tar file, extract it, and install it at the end.
+### Step 3 : 
+In this step
+### Step 4 : 
+Our script will install WKHTMLTOX needed by Odoo,is a combination of wkhtmltopdf and wkhtmltoimage, that are open source (LGPLv3) command line tools to render HTML into PDF and various image formats using the Qt WebKit rendering engine.
+### Step 5 :  
+For security reasons, we should create a specific user for our application Odoo16, so our script will create an user = odoo, after it will clone the application inside the home of this user, and change the oyner of the application folder /opt/odoo/, from root to odoo user. 
+### Step 6 : 
+In this step
+### Step 7 : 
+In this step
+### Step 8 : 
+In this step
+### Step 9 : 
+In this step
+
+
+
+
+
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eacdfda6-1e1b-42f1-8cff-0c5d013244d2)
 
