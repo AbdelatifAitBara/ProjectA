@@ -117,8 +117,10 @@ In this step our script will update and upgrade our system automatically.
 
 ### Step 2 : 
 
-The script transfert 2 files from our "LocalPc" to our Haproxy VM, haproxy.cfg to /etc/haproxy/haproxy.cfg this file contains the configuration of our reverse proxy.
-The second file is 
+The script transfert 2 files from our "LocalPc" to our Haproxy VM, "haproxy.cfg" to /etc/haproxy/haproxy.cfg this file contains the configuration of our reverse proxy.
+
+
+The second file is "haproxy" to /etc/default/haproxy this file is the enable the service.
 
 
 
