@@ -109,6 +109,7 @@ This script will allow us to :
 * Configure HAproxy as a LoadBalancer.
 * Configure the reverse proxy.
 * Create a cronjob, each time we reboot our Haproxy machine, this cron will check the status of HAproxy, and if it finds that the status = inactive, it will restart haproxy.service.
+* Create a SSL Certificate automatically.
 
 ### Explanation Step By Step :
 
@@ -128,5 +129,7 @@ The second file is "haproxy" to /etc/default/haproxy this file is the enable the
 
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eacdfda6-1e1b-42f1-8cff-0c5d013244d2)
+
+After this the script will transfer "pem_generate.sh" to /root/ssl/pem_generate.sh, this script is used to generate the PEM file, we'll use it later to secure our connection.
 
 
