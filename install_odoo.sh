@@ -64,6 +64,7 @@ elif [[ "$1" == "app1" ]];then
     ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
     sshpass -p "${password}" ssh-copy-id -o StrictHostKeyChecking=no root@192.168.20.12
     cp /vagrant/backup-script.sh /var/lib/pgsql/14/backups/backup-script.sh
+    sed -i -e 's/\r$//' /var/lib/pgsql/14/backups/backup-script.sh
     chmod +x /var/lib/pgsql/14/backups/backup-script.sh
     mkdir /var/lib/pgsql/14/backups/odoo_backup
     echo "* * * * * /var/lib/pgsql/14/backups/backup-script.sh" >> pg-back-up
