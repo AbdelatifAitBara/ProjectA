@@ -55,6 +55,11 @@ vagrant up
 ```
 ### NOTE: The Installation will take a while (Around 50 to 60mn).
 
+At the end of the Installation, open your VirtualBox, you should have the same VMs as the image bellow.
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/a72ada26-b635-48c6-903e-b2af0e1701c9)
+
+
 ## 
 
 ## Scripts Explanation :
