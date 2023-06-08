@@ -6,13 +6,14 @@
 # Odoo V16 will use pg-14 as db and haproxy as a loadbalancer.     #
 # -Developer: DevOps Team - B - Team-B@itsgroup.fr                 #
 # -Date: 04/06/2023                                                #
-# -Version: 2.1.0                                                  #
+# -Version: 3.0.0                                                  #
 ####################################################################
 GREEN='\033[1;32m'
 RED='\033[1;31m'
 CYAN='\033[1;36m'
 BBlue='\033[1;34m'
 NC='\033[0m'
+password="vagrant"
 
 printf "${GREEN}Please be patient, the installation will takes a few minutes...${NC}\n"
 printf "${CYAN}This Script Contains 9 STEPS To Deploy The Application Odoo Ver.16.${NC}\n"
@@ -54,14 +55,21 @@ sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
 systemctl start postgresql-14.service
 systemctl enable postgresql-14.service
 su - postgres -c "createuser -s odoo"
+su - postgres -c "createdb test1"
 sed -i 's/peer/trust/g' /var/lib/pgsql/14/data/pg_hba.conf
 systemctl restart postgresql-14.service
-cp /vagrant/back-up.sh /var/lib/pgsql/14/backups
-mkdir /var/lib/pgsql/14/backups/odoo_backup
-echo "* * * * * /var/lib/pgsql/14/backups/back-up.sh" >> pg-back-up
-crontab pg-back-up
-rm -f pg-back-up
-
+if [[ "$1" == "app2" ]];then
+    mkdir /var/lib/pgsql/14/backups/remote_backup
+elif [[ "$1" == "app1" ]];then
+    ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+    sshpass -p "${password}" ssh-copy-id -o StrictHostKeyChecking=no root@192.168.20.12
+    cp /vagrant/backup-script.sh /var/lib/pgsql/14/backups/backup-script.sh
+    chmod +x /var/lib/pgsql/14/backups/backup-script.sh
+    mkdir /var/lib/pgsql/14/backups/odoo_backup
+    echo "* * * * * /var/lib/pgsql/14/backups/backup-script.sh" >> pg-back-up
+    crontab pg-back-up
+    rm -f pg-back-up
+fi
 then
     printf "${GREEN}STEP 3: Postgresql-14 Has Been Installed Successfully.${NC}\n"
 else
