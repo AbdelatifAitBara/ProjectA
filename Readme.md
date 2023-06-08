@@ -81,7 +81,7 @@ In this step our script will update and upgrade our system automatically.
 ### Step 2 : 
 In this step the script will install some packages as (openssl, openssl-devel, wget, tar, gcc, git...ect) because we need them later, also the development tools group (acts as a transitional package for installation of multiple development, compilation and debugging tools), after it will download Python3.7 as a tar file, extract it, and install it at the end.
 ### Step 3 : 
-In this step
+In this step we are installing and setting up postgresql. We are also creating the database to be used by the odoo app. Then, the script create a remote directory on app2 that will host the app backups. We also do the same on app1. We create a ssh connexion between app1 and app2 by creating a key pair and copying the public key on the authorized_keys file in app2. This way, app1 can send (or receive) files through ssh without requiring any password. Moreover, we add the backup script on app1. This script, when executed creates a backup dump file on app1 and on remote app2. It also checks if there is max 10 backup files remaining and deleting the elder ones on both apps (max 10).
 ### Step 4 : 
 Our script will install WKHTMLTOX needed by Odoo,is a combination of wkhtmltopdf and wkhtmltoimage, that are open source (LGPLv3) command line tools to render HTML into PDF and various image formats using the Qt WebKit rendering engine.
 ### Step 5 :  
