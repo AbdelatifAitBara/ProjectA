@@ -39,6 +39,10 @@ if
 then
     cp /vagrant/haproxy.cfg /etc/haproxy/haproxy.cfg
     cp /vagrant/haproxy /etc/default/haproxy
+    mkdir /root/ssl
+    cp /vagrant/pem_generate.sh /root/ssl/pem_generate.sh
+    chmod +x /root/ssl/pem_generate.sh
+    bash /root/ssl/pem_generate.sh mydomain
     systemctl enable haproxy.service
     systemctl start haproxy.service
     echo "@reboot sleep 60 && systemctl status haproxy.service || systemctl restart haproxy.service" >> check-haproxy
