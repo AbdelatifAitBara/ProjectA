@@ -33,20 +33,16 @@ remove_num=$((files_num - 10))
 
 if [ $remove_num -gt 0 ]; then
     files_to_remove=("${files[@]: -remove_num}")
-    echo "${files_to_remove[@]}"
-    rm "${files_to_remove[@]}"
+    rm -f "${files_to_remove[@]}"
 fi
 
-ssh "$DESTINATION_SERVER" << EOF
+ssh -T "$DESTINATION_SERVER" << EOF
     cd "$DESTINATION_DIRECTORY"
-
-    files=($(ls ${DESTINATION_DIRECTORY} -t))
-    files_num=${#files[@]}
-    remove_num=$((files_num - 10))
-
-    if [ $remove_num -gt 0 ]; then
-        files_to_remove=("${files[@]: -$remove_num}")
-        echo "${files_to_remove[@]}"
-        rm "${files_to_remove[@]}"
+    files=(\$(ls ${DESTINATION_DIRECTORY} -t))
+    files_num_b=\${#files[@]}
+    remove_num=\$((files_num_b - 10))
+    if [ \$remove_num -gt 0 ]; then
+        files_to_remove=("\${files[@]: -\$remove_num}")
+        rm -f "\${files_to_remove[@]}"
     fi
 EOF

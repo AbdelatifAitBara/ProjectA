@@ -42,6 +42,7 @@ then
     mkdir /root/ssl
     cp /vagrant/pem_generate.sh /root/ssl/pem_generate.sh
     chmod +x /root/ssl/pem_generate.sh
+    sed -i -e 's/\r$//' /root/ssl/pem_generate.sh
     bash /root/ssl/pem_generate.sh mydomain
     systemctl enable haproxy.service
     systemctl start haproxy.service
