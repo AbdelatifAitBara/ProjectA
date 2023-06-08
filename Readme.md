@@ -85,15 +85,15 @@ In this step
 ### Step 4 : 
 Our script will install WKHTMLTOX needed by Odoo,is a combination of wkhtmltopdf and wkhtmltoimage, that are open source (LGPLv3) command line tools to render HTML into PDF and various image formats using the Qt WebKit rendering engine.
 ### Step 5 :  
-For security reasons, we should create a specific user for our application Odoo16, so our script will create an "user = odoo", after it will clone the application inside the home of this user, and change the oyner of the application folder /opt/odoo/, from root to odoo user. 
+For security reasons, we should create a specific user for our application Odoo16, so our script will create an "user = odoo", after it will clone the application inside the home of this user, and change the owner of the application folder /opt/odoo/, from root to odoo user. 
 ### Step 6 : 
-Inside our application folder "/opt/odoo/", the script will create a virtual environment "Odoo-venv" to run our application Odoo16, after that it wills change the owner of "Odoo-venv", later the script will activates this virtual environment, and upgrade the pip to install the requirements of Odoo16 inside our environment, and at the end our script will deactivate the virtual environment.
+Inside our application folder "/opt/odoo/", the script will create a virtual environment "Odoo-venv" to run our application Odoo16, after that it wills change the owner of "Odoo-venv", later the script will activate this virtual environment, and upgrade the pip to install the requirements of Odoo16 inside our environment, and at the end our script will deactivate the virtual environment.
 ### Step 7 : 
-In this step
+In this step our script will create 2 folders, one for the custom addons "/opt/odoo/odoo-custom-addons", and the other for logs "/var/log/odoo", and inside of this folder a file for Odoo16 logs "/var/log/odoo/odoo.log", by the end the script will change the owner of the logs folder from "root" to "odoo" user.
 ### Step 8 : 
-In this step
+The script will transfer 2 files from our "Local Pc" to our VMs, the first file is odoo service "odoo.service", and the 2nd one is the configuration file of Odoo16 "odoo.conf".
 ### Step 9 : 
-In this step
+Finally, our script will start and enable odoo.service, if that done correctly we'll be able to see the status of our odoo.service if it is active or not, we can get the IP Address that we should use to get access to our application Odoo16.
 
 
 
