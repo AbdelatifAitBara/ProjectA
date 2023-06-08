@@ -27,7 +27,7 @@
 * Install HAproxy in the 3rd machine and use it as a LoadBalancer.
 * Use the reverse proxy, to send http requests to our 2 VMs, by making the APP 1 as a master, and the 2nd one as a Slave.
 * Create Scripts to automotate the installation & configuration of this solution.
-* Create a script to automate, the back-up,restore our data base, from the APP1 and send it to the APP 2 using ssh protocol.
+* Create a script to automate, the back-up of data base, from the APP 1 and send it to the APP 2 using ssh protocol.
 * Configuration of an auto signed certificate on the LoadBalancer, to secure the communications.
 * Implement an LVM storage solution to store database data, this solution should allow flexible expansion of storage space.
 
@@ -55,6 +55,11 @@ vagrant up
 ```
 ### NOTE: The Installation will take a while (Around 50 to 60mn).
 
+At the end of the Installation, open your VirtualBox, you should have the same VMs as the image bellow.
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/a72ada26-b635-48c6-903e-b2af0e1701c9)
+
+
 ## 
 
 ## Scripts Explanation :
@@ -63,7 +68,7 @@ vagrant up
 
 This script will allow us to :
 
-* Update&Upgrade our system.
+* Update&Upgrade our system automatically.
 * Install Python3.7 Packages And Libraries. 
 * Install Postgresql-14 client and server.
 * Install WKHTMLTOX.
@@ -91,12 +96,31 @@ Inside our application folder "/opt/odoo/", the script will create a virtual env
 ### Step 7 : 
 In this step our script will create 2 folders, one for the custom addons "/opt/odoo/odoo-custom-addons", and the other for logs "/var/log/odoo", and inside of this folder a file for Odoo16 logs "/var/log/odoo/odoo.log", by the end the script will change the owner of the logs folder from "root" to "odoo" user.
 ### Step 8 : 
-The script will transfer 2 files from our "Local Pc" to our VMs, the first file is odoo service "odoo.service", and the 2nd one is the configuration file of Odoo16 "odoo.conf".
+The script will transfer 2 files from our "Local Pc" to our VMs, the first file is odoo service "odoo.service" to /etc/systemd/system/odoo.service , and the 2nd one is the configuration file of Odoo16 "odoo.conf" to /etc/odoo.conf.
 ### Step 9 : 
 Finally, our script will start and enable odoo.service, if that done correctly we'll be able to see the status of our odoo.service if it is active or not, we can get the IP Address that we should use to get access to our application Odoo16.
 
+### 2- Explanation of "install_haproxy.sh" :
+
+This script will allow us to :
+
+* Update&Upgrade our system automatically.
+* Install HAproxy on the 3rd VM. 
+* Configure HAproxy as a LoadBalancer.
+* Configure the reverse proxy.
+* Create a cronjob, each time we reboot our Haproxy machine, this cron will check the status of HAproxy, and if it finds that the status = inactive, it will restart haproxy.service.
+
+### Explanation Step By Step :
+
+### Step 1 : 
+In this step our script will update and upgrade our system automatically.
+
+### Step 2 : 
+
+The script transfert 2 files from our "LocalPc" to our Haproxy VM, "haproxy.cfg" to /etc/haproxy/haproxy.cfg this file contains the configuration of our reverse proxy.
 
 
+The second file is "haproxy" to /etc/default/haproxy this file is the enable the service.
 
 
 
