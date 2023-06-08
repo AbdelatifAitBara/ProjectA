@@ -45,7 +45,7 @@ then
     sed -i -e 's/\r$//' /root/ssl/pem_generate.sh
     bash /root/ssl/pem_generate.sh mydomain
     systemctl restart haproxy.service
-    echo "@reboot sleep 60 && systemctl status haproxy.service || systemctl restart haproxy.service" >> check-haproxy
+    echo "@reboot sleep 100 && systemctl status haproxy.service || systemctl restart haproxy.service" >> check-haproxy
     crontab check-haproxy 
     printf "${GREEN}STEP 2: HA Proxy Has Been Installed&Configured Successfully.${NC}\n"
 else
