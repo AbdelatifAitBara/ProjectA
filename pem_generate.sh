@@ -81,7 +81,4 @@ openssl x509 -req \
 
 # Generate the pem file
 
-openssl req -newkey rsa:4096 -keyout intermediateCA.key -out intermediateCA.csr -nodes -subj "/CN=My Intermediate CA"
-openssl x509 -req -in intermediateCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out intermediateCA.crt -days 365
-cat intermediateCA.crt rootCA.crt > ca-bundle.crt
 cat mydomain.key mydomain.crt rootCA.key > mydomain.pem
