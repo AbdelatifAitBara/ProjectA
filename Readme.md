@@ -23,21 +23,19 @@ Odoo is a Belgian suite of business management software tools including, for exa
 
 * Use Vagrant ( IaC software ), to automate the installation of our 3 VMs.
 * Install OdooV.16 On 2 VMs ( SERVER 1 and SERVER 2 ).
-* Install HAproxy in a 3rd machine and use it as a Loadbalancer.
+* Install HAproxy in the 3rd machine and use it as a LoadBalancer.
 * Use the reverse proxy, to send http requests to our 2 VMs, by making the SERVER1 as a master, and the 2nd one as a Slave.
-* 
-* Using Scripts to automotate the installation & configuration of this solution.
-*
-*
+* Create Scripts to automotate the installation & configuration of this solution.
+* Create a script to automate, the back-up,restore our data base, from the SERVER 1 and send it to the SERVER 2 using ssh protocol.
+* Configuration of an auto signed certificate on the LoadBalancer, to secure the communications.
+* Implement an LVM storage solution to store database data, this solution should allow flexible expansion of storage space.
 
 ### IMOPORTANT:
 
 IP Addresses of VMs:
-
 * HAproxy  : 192.168.20.10
 * SERVER 1 : 192.168.20.11
 * SERVER 2 : 192.168.20.12
-
 
 ## How to clone the project, and install Odoo.v16 in your VM:
 
@@ -55,7 +53,6 @@ vagrant up
 
 ```
 ### NOTE: The Installation will take a while (Around 50 to 60mn).
-
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eacdfda6-1e1b-42f1-8cff-0c5d013244d2)
 
