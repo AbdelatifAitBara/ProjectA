@@ -34,8 +34,6 @@ fi
 printf "${BBlue}STEP 2: Instalation&Configuration of HAProxy ...${NC}\n"
 if  
     sudo yum -y install haproxy
-    #firewall-cmd --zone=public --add-port=8069/tcp --permanent
-    #firewall-cmd --reload
 then
     cp /vagrant/haproxy.cfg /etc/haproxy/haproxy.cfg
     cp /vagrant/haproxy /etc/default/haproxy
