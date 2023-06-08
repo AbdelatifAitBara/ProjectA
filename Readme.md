@@ -27,7 +27,7 @@
 * Install HAproxy in the 3rd machine and use it as a LoadBalancer.
 * Use the reverse proxy, to send http requests to our 2 VMs, by making the APP 1 as a master, and the 2nd one as a Slave.
 * Create Scripts to automotate the installation & configuration of this solution.
-* Create a script to automate, the back-up,restore our data base, from the APP1 and send it to the APP 2 using ssh protocol.
+* Create a script to automate, the back-up of data base, from the APP 1 and send it to the APP 2 using ssh protocol.
 * Configuration of an auto signed certificate on the LoadBalancer, to secure the communications.
 * Implement an LVM storage solution to store database data, this solution should allow flexible expansion of storage space.
 
