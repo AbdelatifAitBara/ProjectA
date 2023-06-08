@@ -39,8 +39,8 @@ if
 then
     cp /vagrant/haproxy.cfg /etc/haproxy/haproxy.cfg
     cp /vagrant/haproxy /etc/default/haproxy
-    systemctl start haproxy.service
     systemctl enable haproxy.service
+    systemctl start haproxy.service
     echo "@reboot sleep 60 && systemctl status haproxy.service || systemctl restart haproxy.service" >> check-haproxy
     crontab check-haproxy 
     printf "${GREEN}STEP 2: HA Proxy Has Been Installed&Configured Successfully.${NC}\n"
