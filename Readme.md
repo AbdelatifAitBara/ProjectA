@@ -54,6 +54,23 @@ vagrant up
 ```
 ### NOTE: The Installation will take a while (Around 50 to 60mn).
 
+## Scripts Explanation :
+
+### 1- The first script "install_odoo.sh" :
+
+This script will allow us to :
+
+* Update&Upgrade our system.
+* Install Python3.7 Packages And Libraries. 
+* Install Postgresql-14 client and server.
+* Install WKHTMLTOX.
+* Create And Activate A Python Virtual Environment To Run Odoo Software.
+* Do the Post Configuration of Odoo Automatically.
+* Create a Systemd Service Unit of Odoo.
+* Start Odoo.Service And Enable Automatically
+
+NOTE: The script is capable to stop the installation, if any step of 9 goes badly.
+
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eacdfda6-1e1b-42f1-8cff-0c5d013244d2)
 
 
