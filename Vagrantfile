@@ -5,6 +5,7 @@
 #   + On Linux  => export ENABLE_ZSH="true"
 
 Vagrant.configure("2") do |config|
+  config.vm.box = "geerlingguy/centos7"
     apps=2..1
     ram_app=2048
     cpu_app=2
@@ -14,7 +15,6 @@ Vagrant.configure("2") do |config|
       config.ssh.insert_key = false
       config.ssh.username = "root"
       config.ssh.password = "vagrant"
-        app.vm.box = "geerlingguy/centos7"
         app.vm.network :private_network, ip: "192.168.20.1#{i}"
         app.vm.hostname = "app#{i}"
         app.vm.provider "virtualbox" do |v|
