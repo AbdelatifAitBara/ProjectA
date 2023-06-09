@@ -129,4 +129,8 @@ The second file is "haproxy" to /etc/default/haproxy this file is the enable the
 
 After this the script will transfer "pem_generate.sh" to /root/ssl/pem_generate.sh, this script is used to generate the PEM file, we'll use it later to secure our connection.
 
+## LVM Solution Explanation [lvm.sh] :
+
+
+
 
