@@ -44,7 +44,7 @@ else
     exit 1
 fi
 
-printf "${BBlue}STEP 3: Installing Postgresql-14...${NC}\n"
+printf "${BBlue}STEP 3: Installing Postgresql-14 & Back-up Script...${NC}\n"
 if
 
 
@@ -72,7 +72,7 @@ elif [[ "$1" == "app1" ]];then
     rm -f pg-back-up
 fi
 then
-    printf "${GREEN}STEP 3: Postgresql-14 Has Been Installed Successfully.${NC}\n"
+    printf "${GREEN}STEP 3: Postgresql-14 & Back-up Script Have Been Installed& Configured Successfully.${NC}\n"
 else
     printf "${RED}Error: During The STEP 3...${NC}\n"
     exit 1
