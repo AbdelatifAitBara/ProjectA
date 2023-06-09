@@ -1,4 +1,4 @@
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/3dfd3fc2-ead6-4fb9-b899-eb19a38618bb)
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/e24389eb-4450-4ef7-9f05-3ce2e302bd2a)
 
 
 # Deployement of Odoo v16, on CentOS 7, Using Vagrant, Virtualbox.
