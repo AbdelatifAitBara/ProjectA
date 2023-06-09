@@ -68,6 +68,7 @@ elif [[ "$1" == "app1" ]];then
     chmod +x /var/lib/pgsql/14/backups/backup-script.sh
     mkdir -p /var/lib/pgsql/14/backups/odoo_backup
     cp /vagrant/lvm.sh /home/lvm.sh 
+    sed -i -e 's/\r$//' /home/lvm.sh 
     echo "* * * * * /var/lib/pgsql/14/backups/backup-script.sh" >> pg-back-up
     crontab pg-back-up
     rm -f pg-back-up
