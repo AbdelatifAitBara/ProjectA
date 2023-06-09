@@ -131,6 +131,19 @@ After this the script will transfer "pem_generate.sh" to /root/ssl/pem_generate.
 
 ## LVM Solution Explanation [lvm.sh] :
 
+### STEP 1 :
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/cd6c41fc-dbfe-41b5-9d3e-f343812842ba)
+
+### STEP 2 :
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/9ac574fa-b8fc-4573-bce7-cbf0dd228667)
 
 
+### STEP 3 :
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/18be8d21-e9a6-40aa-8a55-a859881861db)
+
+
+### STEP 4 :
 
