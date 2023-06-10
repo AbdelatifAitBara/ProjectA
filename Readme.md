@@ -245,3 +245,6 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 6- Deploying the app2 before the app1, we had a problem because the app 1 needs to connect with the app2 and if we lunch the app1 and the app 2 is not available it will not work.
 
 7- the same problem with whene we deployed our apps before HAproxy, so we had to change the order of deployement of our APPS and keep the HAproxy at the end. 
+
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/71e73768-66b1-4ee4-89cf-e23f55ab4234)
