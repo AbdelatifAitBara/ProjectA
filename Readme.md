@@ -40,16 +40,23 @@ IP Addresses of VMs:
 - Open your powershell.
 - Lunch the bellow commands in order :
 
+
 ```
 cd .\Desktop\
-
-git clone https://github.com/AbdelatifAitBara/ProjectA
-
-cd .\Desktop\ProjectA
-
-vagrant up
+```
 
 ```
+git clone https://github.com/AbdelatifAitBara/ProjectA
+```
+
+```
+cd .\Desktop\ProjectA
+```
+
+```
+vagrant up
+```
+
 ### NOTE: The Installation will take a while (Around 50 to 60mn).
 
 ### IMPORTANT:
