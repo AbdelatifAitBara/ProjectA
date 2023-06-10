@@ -210,4 +210,18 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 - The command mkdir /var/lib/pgsql/14/backups/odoo_backup/saves creates a new directory named saves inside the /var/lib/pgsql/14/backups/odoo_backup directory, will be used to save our db back-up comes from our APP 1, On The APP 2.
 
 
+### 6- Problems that we have meet and solved during the creation of this solution :
 
+1- We couldn't lunch python3.7 inside script ( creation of python venv using only python3.7 -m ....) doesn't work, we had to add the complet path inside the script. 
+
+2- Using vagrant user to connect to our VMs made a lot of problems during the installation of our scripts because of permissions, so we had to modify our Vagrantfile to connect as a root and run all our scripts as root.
+
+3- Python versions problems (we had to do upgrade and downgrade to find the best version of python for our solution), inside the documentation of odoo they propose to use a version >= 3.7 but when we have used 3.9 we had a lot of problems during the installation of odoo requirements.
+
+4- Cannot do backup as root and to resolve this, we had to replace "peer" by "trust" inside the pg config file : pg_hba.cfg.
+
+5- problem of using scripts, when we transfer them from our LocalPC to our VMs because of character $/r, we had to use “sed”
+
+6- Deploying the app2 before the app1, we had a problem because the app 1 needs to connect with the app2 and if we lunch the app1 and the app 2 is not available it will not work.
+
+7- the same problem with whene we deployed our apps before HAproxy, so we had to change the order of deployement of our APPS and keep the HAproxy at the end. 
