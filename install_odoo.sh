@@ -52,8 +52,8 @@ sudo yum -y install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-
 sudo yum -y update
 sudo yum install -y postgresql14-server postgresql14
 sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
-systemctl start postgresql-14.service
 systemctl enable postgresql-14.service
+systemctl start postgresql-14.service
 su - postgres -c "createuser -s odoo"
 su - postgres -c "createdb test1"
 sed -i 's/peer/trust/g' /var/lib/pgsql/14/data/pg_hba.conf
@@ -153,8 +153,18 @@ systemctl start odoo.service
 systemctl enable odoo.service
 then
     systemctl status odoo.service
-    printf "${GREEN}To get access to Odoo Use: http://$(ip -f inet addr show enp0s8 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p'):8069 ${NC}\n"
 else
     printf "${RED}Error: During The STEP 9...${NC}\n"
     exit 1
+fi
+
+if [[ "$1" == "app2" ]];then
+    printf "${GREEN} App2 Is ready to be used...${NC}\n"
+elif [[ "$1" == "app1" ]];then
+    printf "${BBlue} STEP 10: LVM Configuration...${NC}\n"
+    cp /vagrant/lvm.sh /home/lvm.sh 
+    sed -i -e 's/\r$//' /home/lvm.sh 
+    chmod +x /home/lvm.sh
+    bash /home/lvm.sh
+    printf "${GREEN} STEP 10: LVM Configuration Done Successfully...${NC}\n"
 fi
