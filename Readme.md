@@ -50,7 +50,7 @@ git clone https://github.com/AbdelatifAitBara/ProjectA
 ```
 
 ```
-cd .\Desktop\ProjectA
+cd ProjectA
 ```
 
 ```
