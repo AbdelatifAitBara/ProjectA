@@ -131,7 +131,50 @@ After this the script will transfer "pem_generate.sh" to /root/ssl/pem_generate.
 
 ### 3- Explanation of "backup-script.sh" :
 
-### 4- Explanation of "lvm.sh" LVM Solution :
+
+### 4- Explanation of "pem_generate.sh" :
+
+This script will allow us to automate :
+
+- The generation of .PEM file, needed by HApoxy to be used in the encryption of requests and allows inbound requests via HTTPS Protocol ( SSL Certificate )
+- The generation of files needed to generate our PEM file as : 
+
+- private.key  : is a file that contains the private key of a pair of keys used in SSL/TLS certificates,the SSL/TLS protocol uses a pair of keys - one private, one public - to authenticate, secure and manage secure connections
+
+- mydomain.crt : is a file that contains the SSL/TLS certificate content,SSL/TLS certificates establish an encrypted connection between a website/server and a browser with what's known as an "SSL handshake",The certificate contains information about the identity of the certificate/website owner, which is called the "subject".
+
+- rootCA.key   : refers to the private key of a root certificate authority (CA), a root certificate is a public key certificate that identifies a root certificate authority (CA).
+
+### IMPORTANT :
+
+- Self-signed certificates and certificates signed by a Certificate Authority (CA) are both used to provide encryption for data in motion, but there are some differences between them. Here are some key points from the search results:
+
+1- Self-Signed Certificates:
+
+- Self-signed certificate is created and authenticated by an individual or entity themselves without the involvement of a third-party CA.
+
+- Self-signed certificates are mostly used in test environments to test the security of a network or a website, or to establish secure connections between devices for testing purposes.
+
+- Self-signed certificates are not trusted by web browsers and can cause security warnings to appear when accessed by users.
+
+- Self-signed certificates are great for testing environments and non-public networks, but they don't belong on the public internet.
+
+2- Certificates Signed by a Certificate Authority:
+
+- Certificates signed by a reputable third-party CA are more trusted than self-signed certificates for commercial use.
+
+- A CA is an organization whose primary work is to validate the identities of individuals, companies, and any other entity. A CA is also responsible for issuing digital certificates that bind these individuals and entities to cryptographic keys.
+
+- Certificates signed by a CA provide authentication in addition to encryption, as the CA verifies the identity of the certificate holder.
+
+- Certificates signed by a CA are trusted by web browsers and do not cause security warnings to appear when accessed by users.
+
+- Certificate authorities such as VeriSign require a procedure whereby applicants can prove their identities and obtain certificates.
+
+
+
+
+### 5- Explanation of "lvm.sh" LVM Solution :
 
 This script will allow us to automate :
 
