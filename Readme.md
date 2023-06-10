@@ -178,8 +178,6 @@ This script will allow us to automate :
 
 - Certificates signed by a CA are trusted by web browsers and do not cause security warnings to appear when accessed by users.
 
-- Certificate authorities such as VeriSign require a procedure whereby applicants can prove their identities and obtain certificates.
-
 
 
 
