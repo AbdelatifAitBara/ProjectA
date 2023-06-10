@@ -40,16 +40,23 @@ IP Addresses of VMs:
 - Open your powershell.
 - Lunch the bellow commands in order :
 
+
 ```
 cd .\Desktop\
-
-git clone https://github.com/AbdelatifAitBara/ProjectA
-
-cd .\Desktop\ProjectA
-
-vagrant up
+```
 
 ```
+git clone https://github.com/AbdelatifAitBara/ProjectA
+```
+
+```
+cd .\Desktop\ProjectA
+```
+
+```
+vagrant up
+```
+
 ### NOTE: The Installation will take a while (Around 50 to 60mn).
 
 ### IMPORTANT:
@@ -80,7 +87,7 @@ This script will allow us to :
 * Create And Activate A Python Virtual Environment To Run Odoo Software.
 * Do the Post Configuration of Odoo Automatically.
 * Create a Systemd Service Unit of Odoo.
-* Start Odoo.Service And Enable Automatically
+* Enable and start Odoo.Service Automatically.
 
 NOTE: The script is capable to stop the installation, if any step of 10 goes badly.
 
@@ -124,10 +131,13 @@ In this step our script will update and upgrade our system automatically.
 ### Step 2 : 
 
 - The script transfert 2 files from our "LocalPc" to our Haproxy VM, "haproxy.cfg" to /etc/haproxy/haproxy.cfg this file contains the configuration of our reverse proxy ( APP 1 as a Primary Server, APP 2 as a Back-up Server, SSL Certificate ).
+
+
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/ea3d2c35-281a-45d4-98d2-674a21911e0e)
 
 
 - The second file is "haproxy" to /etc/default/haproxy this file is the enable the Load Balancer's behavior.
+
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/4052f1a9-8184-4a15-b5a8-596acf5c157b)
 
@@ -177,8 +187,6 @@ This script will allow us to automate :
 - Certificates signed by a CA provide authentication in addition to encryption, as the CA verifies the identity of the certificate holder.
 
 - Certificates signed by a CA are trusted by web browsers and do not cause security warnings to appear when accessed by users.
-
-- Certificate authorities such as VeriSign require a procedure whereby applicants can prove their identities and obtain certificates.
 
 
 
