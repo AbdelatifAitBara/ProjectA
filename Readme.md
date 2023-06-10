@@ -228,7 +228,8 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 
 ### 5- Problems that we have meet and solved during the creation of this solution :
 
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/d528897b-19b3-4b35-be27-d81f542e2bd3)
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/f8c726a8-0e19-4f4d-b22d-27601eca86d9)
+
 
 
 1- We couldn't lunch python3.7 inside script ( creation of python venv using only python3.7 -m ....) doesn't work, we had to add the complet path inside the script. 
