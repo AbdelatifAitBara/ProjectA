@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
   cpu_app=2
   config.vm.define "app2" do |app2|
     app2.vm.network "private_network", ip: "192.168.20.12"
+    app2.vm.hostname = "app2"
     app2.vm.provider "virtualbox" do |v|
       v.memory = ram_app
       v.cpus = cpu_app
@@ -20,13 +21,15 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "app1" do |app1|
     app1.vm.network "private_network", ip: "192.168.20.11"
+    app1.vm.hostname = "app1"
     app1.vm.provider "virtualbox" do |v|
       v.memory = ram_app
       v.cpus = cpu_app
       v.name = "app1"
-      v.customize ["createhd", "--filename", "diskkkkkkkkkk.vdi", "--size", "10240"]
-      v.customize ["storageattach", :id, "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "diskkkkkkkkkk.vdi"]
-      
+      v.customize ['createhd', '--filename', 'app1-disk1.vmdk', '--size', "4096"]
+      v.customize ['storageattach', :id, '--storagectl', 'IDE Controller', '--port', "1", '--device', "0", '--type', 'hdd', '--medium', 'app1-disk1.vmdk']
+      v.customize ['createhd', '--filename', 'app1-disk2.vmdk', '--size', "5024"]
+      v.customize ['storageattach', :id, '--storagectl', 'IDE Controller', '--port', "1", '--device', "1", '--type', 'hdd', '--medium', 'app1-disk2.vmdk']
     end
     app1.vm.provision :shell do |shell|
       shell.path = "install_odoo.sh"

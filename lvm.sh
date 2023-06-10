@@ -29,7 +29,7 @@ fi
 
 printf "${BBlue}STEP 3: Creating LV...${NC}\n"
 if
-lvcreate --size 6G --name lv1 vg_odoo
+lvcreate -L 6G --name lv1 vg_odoo
 lvcreate -l 100%FREE --name lv2 vg_odoo
 then
     printf "${GREEN}STEP 3: The Creation Of Our Logical Volumes Have Been Done Successfully.${NC}\n"
