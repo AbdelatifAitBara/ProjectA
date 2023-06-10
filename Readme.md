@@ -183,7 +183,9 @@ This script will allow us to automate :
 * Creation of LV ( Logical Volume ), using our Volume Group create in the Step 2.
 * Formatting and Mounting Our Logical Volumes.
 
-<img src="https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eb3b7579-012d-450b-bd46-88e1209b2077" width="100%" height="50%">
+#### LVM Architecture Example:
+
+<img src="https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eb3b7579-012d-450b-bd46-88e1209b2077" width="40%" height="50%">
 
 
 
