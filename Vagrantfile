@@ -26,9 +26,9 @@ Vagrant.configure("2") do |config|
       v.memory = ram_app
       v.cpus = cpu_app
       v.name = "app1"
-      v.customize ['createhd', '--filename', 'app1-disk1.vmdk', '--size', "4096"]
+      v.customize ['createhd', '--filename', 'app1-disk1.vmdk', '--size', "4124"]
       v.customize ['storageattach', :id, '--storagectl', 'IDE Controller', '--port', "1", '--device', "0", '--type', 'hdd', '--medium', 'app1-disk1.vmdk']
-      v.customize ['createhd', '--filename', 'app1-disk2.vmdk', '--size', "5024"]
+      v.customize ['createhd', '--filename', 'app1-disk2.vmdk', '--size', "5124"]
       v.customize ['storageattach', :id, '--storagectl', 'IDE Controller', '--port', "1", '--device', "1", '--type', 'hdd', '--medium', 'app1-disk2.vmdk']
     end
     app1.vm.provision :shell do |shell|
@@ -37,10 +37,6 @@ Vagrant.configure("2") do |config|
     end
   end
   config.vm.define "haproxy" do |haproxy|
-    config.vm.box_download_insecure
-    config.ssh.insert_key = false
-    config.ssh.username = "root"
-    config.ssh.password = "vagrant"
       haproxy.vm.network "private_network", ip: "192.168.20.10"
       haproxy.vm.hostname = "haproxy"
       haproxy.vm.provider "virtualbox" do |v|
