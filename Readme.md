@@ -183,6 +183,10 @@ This script will allow us to automate :
 * Creation of LV ( Logical Volume ), using our Volume Group create in the Step 2.
 * Formatting and Mounting Our Logical Volumes.
 
+<img src="https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eb3b7579-012d-450b-bd46-88e1209b2077" width="100%" height="50%">
+
+
+
 
 ### Explanation Step By Step :
 
@@ -210,7 +214,11 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 - The command mkdir /var/lib/pgsql/14/backups/odoo_backup/saves creates a new directory named saves inside the /var/lib/pgsql/14/backups/odoo_backup directory, will be used to save our db back-up comes from our APP 1, On The APP 2.
 
 
+
 ### 6- Problems that we have meet and solved during the creation of this solution :
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/d528897b-19b3-4b35-be27-d81f542e2bd3)
+
 
 1- We couldn't lunch python3.7 inside script ( creation of python venv using only python3.7 -m ....) doesn't work, we had to add the complet path inside the script. 
 
