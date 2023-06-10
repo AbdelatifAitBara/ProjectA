@@ -141,11 +141,7 @@ In this step our script will update and upgrade our system automatically.
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/21ad760c-e5ce-4d0c-b54e-4eaea17cb6b5)
 
-
-### 3- Explanation of "backup-script.sh" :
-
-
-### 4- Explanation of "pem_generate.sh" :
+### 3- Explanation of "pem_generate.sh" :
 
 This script will allow us to automate :
 
@@ -187,7 +183,7 @@ This script will allow us to automate :
 
 
 
-### 5- Explanation of "lvm.sh" LVM Solution :
+### 4- Explanation of "lvm.sh" LVM Solution :
 
 This script will allow us to automate :
 
@@ -230,7 +226,7 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 
 
 
-### 6- Problems that we have meet and solved during the creation of this solution :
+### 5- Problems that we have meet and solved during the creation of this solution :
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/d528897b-19b3-4b35-be27-d81f542e2bd3)
 
