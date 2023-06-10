@@ -23,7 +23,9 @@ printf "${GREEN}Please be patient this may take a while...${NC}\n"
 printf "${BBlue}STEP 1: Updating and Upgrading The System...${NC}\n"
 
 
-if sudo yum -y update && sudo yum -y upgrade
+if 
+sudo yum -y update && sudo yum -y upgrade
+yum -y install figlet
 then
     printf "${GREEN}STEP 1: The System Has Been Updated successfully.${NC}\n"
 else
@@ -46,7 +48,9 @@ then
     echo "@reboot sleep 100 && systemctl status haproxy.service || systemctl restart haproxy.service" >> check-haproxy
     crontab check-haproxy 
     printf "${GREEN}STEP 2: HA Proxy Has Been Installed & Configured Successfully.${NC}\n"
+    figlet "ITS SERVICES !"
     printf "${GREEN}To Get Access To Odoo Use: http://$(ip -f inet addr show enp0s8 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')${NC}\n"
+
 else
     printf "${RED}Error: During The STEP 2...${NC}\n"
     exit 1

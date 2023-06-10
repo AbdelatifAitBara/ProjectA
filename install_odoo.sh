@@ -30,7 +30,7 @@ fi
 printf "${BBlue}STEP 2: Installing Python3.7 Packages And Libraries...${NC}\n"
 if
 
-yum install -y nano bzip2-devel openssl openssl-devel wget tar gcc git libpq-devel python-devel openldap-devel libffi-devel xz-devel zlib-devel
+yum install -y nano bzip2-devel openssl openssl-devel wget tar gcc git libpq-devel python-devel openldap-devel libffi-devel xz-devel zlib-devel 
 sudo yum -y groupinstall "Development Tools"
 wget https://www.python.org/ftp/python/3.7.13/Python-3.7.13.tgz
 tar xvf Python-3.7.13.tgz
@@ -160,11 +160,16 @@ fi
 
 if [[ "$1" == "app2" ]];then
     printf "${GREEN} App2 Is ready to be used...${NC}\n"
-elif [[ "$1" == "app1" ]];then
+elif [[ "$1" == "app1" ]];if
     printf "${BBlue} STEP 10: LVM Configuration...${NC}\n"
     cp /vagrant/lvm.sh /home/lvm.sh 
     sed -i -e 's/\r$//' /home/lvm.sh 
     chmod +x /home/lvm.sh
     bash /home/lvm.sh
-    printf "${GREEN} STEP 10: LVM Configuration Done Successfully...${NC}\n"
+    then
+        printf "${GREEN} STEP 10: LVM Configuration Has Been Done Successfully.${NC}\n"
+    else
+        printf "${RED}Error: During The STEP 10...${NC}\n"
+        exit 1
+    fi
 fi
