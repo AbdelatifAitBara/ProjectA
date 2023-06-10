@@ -87,7 +87,7 @@ This script will allow us to :
 * Create And Activate A Python Virtual Environment To Run Odoo Software.
 * Do the Post Configuration of Odoo Automatically.
 * Create a Systemd Service Unit of Odoo.
-* Start Odoo.Service And Enable Automatically
+* Enable and start Odoo.Service Automatically.
 
 NOTE: The script is capable to stop the installation, if any step of 10 goes badly.
 
