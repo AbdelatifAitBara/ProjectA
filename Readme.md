@@ -52,7 +52,15 @@ vagrant up
 ```
 ### NOTE: The Installation will take a while (Around 50 to 60mn).
 
-At the end of the Installation, open your VirtualBox, you should have the same VMs as the image bellow.
+### IMPORTANT:
+
+- At the step 9 of the instalation of Odoo on APP 1 & APP 2 make sure that Odoo.service is **ACTIVE & RUNNING** as the image bellow:
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/1842f917-7211-4b9e-8ede-4f825e9f0bd8)
+
+
+
+- When the installation is done, open your VirtualBox, you should have the same VMs as the image bellow.
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/a72ada26-b635-48c6-903e-b2af0e1701c9)
 
