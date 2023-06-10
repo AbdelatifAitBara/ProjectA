@@ -141,11 +141,7 @@ In this step our script will update and upgrade our system automatically.
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/21ad760c-e5ce-4d0c-b54e-4eaea17cb6b5)
 
-
-### 3- Explanation of "backup-script.sh" :
-
-
-### 4- Explanation of "pem_generate.sh" :
+### 3- Explanation of "pem_generate.sh" :
 
 This script will allow us to automate :
 
@@ -187,7 +183,7 @@ This script will allow us to automate :
 
 
 
-### 5- Explanation of "lvm.sh" LVM Solution :
+### 4- Explanation of "lvm.sh" LVM Solution :
 
 This script will allow us to automate :
 
@@ -230,9 +226,10 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 
 
 
-### 6- Problems that we have meet and solved during the creation of this solution :
+### 5- Problems that we have meet and solved during the creation of this solution :
 
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/d528897b-19b3-4b35-be27-d81f542e2bd3)
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/f8c726a8-0e19-4f4d-b22d-27601eca86d9)
+
 
 
 1- We couldn't lunch python3.7 inside script ( creation of python venv using only python3.7 -m ....) doesn't work, we had to add the complet path inside the script. 
@@ -248,3 +245,6 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 6- Deploying the app2 before the app1, we had a problem because the app 1 needs to connect with the app2 and if we lunch the app1 and the app 2 is not available it will not work.
 
 7- the same problem with whene we deployed our apps before HAproxy, so we had to change the order of deployement of our APPS and keep the HAproxy at the end. 
+
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/71e73768-66b1-4ee4-89cf-e23f55ab4234)
