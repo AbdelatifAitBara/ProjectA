@@ -52,7 +52,15 @@ vagrant up
 ```
 ### NOTE: The Installation will take a while (Around 50 to 60mn).
 
-At the end of the Installation, open your VirtualBox, you should have the same VMs as the image bellow.
+### IMPORTANT:
+
+- At the step 9 of the instalation of Odoo on APP 1 & APP 2 make sure that Odoo.service is **ACTIVE & RUNNING** as the image bellow:
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/1842f917-7211-4b9e-8ede-4f825e9f0bd8)
+
+
+
+- When the installation is done, open your VirtualBox, you should have the same VMs as the image bellow.
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/a72ada26-b635-48c6-903e-b2af0e1701c9)
 
@@ -106,7 +114,7 @@ This script will allow us to :
 * Configure HAproxy as a LoadBalancer.
 * Configure the reverse proxy.
 * Create a cronjob, each time we reboot our Haproxy machine, this cron will check the status of HAproxy, and if it finds that the status = inactive, it will restart haproxy.service.
-* Create a SSL Certificate automatically.
+* Run " pem_generate.sh " script, to create our SSL Certificate automatically.
 
 ### Explanation Step By Step :
 
@@ -115,11 +123,11 @@ In this step our script will update and upgrade our system automatically.
 
 ### Step 2 : 
 
-The script transfert 2 files from our "LocalPc" to our Haproxy VM, "haproxy.cfg" to /etc/haproxy/haproxy.cfg this file contains the configuration of our reverse proxy ( APP 1 as a Primary Server, APP 2 as a Back-up Server, SSL Certificate ).
+- The script transfert 2 files from our "LocalPc" to our Haproxy VM, "haproxy.cfg" to /etc/haproxy/haproxy.cfg this file contains the configuration of our reverse proxy ( APP 1 as a Primary Server, APP 2 as a Back-up Server, SSL Certificate ).
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/ea3d2c35-281a-45d4-98d2-674a21911e0e)
 
 
-The second file is "haproxy" to /etc/default/haproxy this file is the enable the Load Balancer's behavior.
+- The second file is "haproxy" to /etc/default/haproxy this file is the enable the Load Balancer's behavior.
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/4052f1a9-8184-4a15-b5a8-596acf5c157b)
 
@@ -127,11 +135,59 @@ The second file is "haproxy" to /etc/default/haproxy this file is the enable the
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eacdfda6-1e1b-42f1-8cff-0c5d013244d2)
 
-After this the script will transfer "pem_generate.sh" to /root/ssl/pem_generate.sh, this script is used to generate the PEM file, we'll use it later to secure our connection.
+- After this the script will transfer "pem_generate.sh" to /root/ssl/pem_generate.sh, this script is used to generate the PEM file, we'll use it later to secure our connection.
+
+- If everything went well, at the end of the installation you'll have the same result as the image bellow, showing the IP address that we should use to get access to our Application :
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/21ad760c-e5ce-4d0c-b54e-4eaea17cb6b5)
+
 
 ### 3- Explanation of "backup-script.sh" :
 
-### 4- Explanation of "lvm.sh" LVM Solution :
+
+### 4- Explanation of "pem_generate.sh" :
+
+This script will allow us to automate :
+
+- The generation of .PEM file, needed by HApoxy to be used in the encryption of requests and allows inbound requests via HTTPS Protocol ( SSL Certificate )
+- The generation of files needed to generate our PEM file as : 
+
+- private.key  : is a file that contains the private key of a pair of keys used in SSL/TLS certificates,the SSL/TLS protocol uses a pair of keys - one private, one public - to authenticate, secure and manage secure connections
+
+- mydomain.crt : is a file that contains the SSL/TLS certificate content,SSL/TLS certificates establish an encrypted connection between a website/server and a browser with what's known as an "SSL handshake",The certificate contains information about the identity of the certificate/website owner, which is called the "subject".
+
+- rootCA.key   : refers to the private key of a root certificate authority (CA), a root certificate is a public key certificate that identifies a root certificate authority (CA).
+
+### IMPORTANT :
+
+- Self-signed certificates and certificates signed by a Certificate Authority (CA) are both used to provide encryption for data in motion, but there are some differences between them. Here are some key points from the search results:
+
+1- Self-Signed Certificates:
+
+- Self-signed certificate is created and authenticated by an individual or entity themselves without the involvement of a third-party CA.
+
+- Self-signed certificates are mostly used in test environments to test the security of a network or a website, or to establish secure connections between devices for testing purposes.
+
+- Self-signed certificates are not trusted by web browsers and can cause security warnings to appear when accessed by users.
+
+- Self-signed certificates are great for testing environments and non-public networks, but they don't belong on the public internet.
+
+2- Certificates Signed by a Certificate Authority:
+
+- Certificates signed by a reputable third-party CA are more trusted than self-signed certificates for commercial use.
+
+- A CA is an organization whose primary work is to validate the identities of individuals, companies, and any other entity. A CA is also responsible for issuing digital certificates that bind these individuals and entities to cryptographic keys.
+
+- Certificates signed by a CA provide authentication in addition to encryption, as the CA verifies the identity of the certificate holder.
+
+- Certificates signed by a CA are trusted by web browsers and do not cause security warnings to appear when accessed by users.
+
+- Certificate authorities such as VeriSign require a procedure whereby applicants can prove their identities and obtain certificates.
+
+
+
+
+### 5- Explanation of "lvm.sh" LVM Solution :
 
 This script will allow us to automate :
 
@@ -139,6 +195,12 @@ This script will allow us to automate :
 * Creation of VG ( Volume Group ), using our 2 PV created in the Step 1.
 * Creation of LV ( Logical Volume ), using our Volume Group create in the Step 2.
 * Formatting and Mounting Our Logical Volumes.
+
+#### LVM Architecture Example:
+
+<img src="https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eb3b7579-012d-450b-bd46-88e1209b2077" width="40%" height="50%">
+
+
 
 
 ### Explanation Step By Step :
@@ -168,3 +230,21 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 
 
 
+### 6- Problems that we have meet and solved during the creation of this solution :
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/d528897b-19b3-4b35-be27-d81f542e2bd3)
+
+
+1- We couldn't lunch python3.7 inside script ( creation of python venv using only python3.7 -m ....) doesn't work, we had to add the complet path inside the script. 
+
+2- Using vagrant user to connect to our VMs made a lot of problems during the installation of our scripts because of permissions, so we had to modify our Vagrantfile to connect as a root and run all our scripts as root.
+
+3- Python versions problems (we had to do upgrade and downgrade to find the best version of python for our solution), inside the documentation of odoo they propose to use a version >= 3.7 but when we have used 3.9 we had a lot of problems during the installation of odoo requirements.
+
+4- Cannot do backup as root and to resolve this, we had to replace "peer" by "trust" inside the pg config file : pg_hba.cfg.
+
+5- problem of using scripts, when we transfer them from our LocalPC to our VMs because of character $/r, we had to use “sed”
+
+6- Deploying the app2 before the app1, we had a problem because the app 1 needs to connect with the app2 and if we lunch the app1 and the app 2 is not available it will not work.
+
+7- the same problem with whene we deployed our apps before HAproxy, so we had to change the order of deployement of our APPS and keep the HAproxy at the end. 
