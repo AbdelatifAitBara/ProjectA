@@ -131,10 +131,13 @@ In this step our script will update and upgrade our system automatically.
 ### Step 2 : 
 
 - The script transfert 2 files from our "LocalPc" to our Haproxy VM, "haproxy.cfg" to /etc/haproxy/haproxy.cfg this file contains the configuration of our reverse proxy ( APP 1 as a Primary Server, APP 2 as a Back-up Server, SSL Certificate ).
+
+
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/ea3d2c35-281a-45d4-98d2-674a21911e0e)
 
 
 - The second file is "haproxy" to /etc/default/haproxy this file is the enable the Load Balancer's behavior.
+
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/4052f1a9-8184-4a15-b5a8-596acf5c157b)
 
