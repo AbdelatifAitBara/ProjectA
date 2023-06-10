@@ -106,7 +106,7 @@ This script will allow us to :
 * Configure HAproxy as a LoadBalancer.
 * Configure the reverse proxy.
 * Create a cronjob, each time we reboot our Haproxy machine, this cron will check the status of HAproxy, and if it finds that the status = inactive, it will restart haproxy.service.
-* Create a SSL Certificate automatically.
+* Run " pem_generate.sh " script, to create our SSL Certificate automatically.
 
 ### Explanation Step By Step :
 
@@ -115,11 +115,11 @@ In this step our script will update and upgrade our system automatically.
 
 ### Step 2 : 
 
-The script transfert 2 files from our "LocalPc" to our Haproxy VM, "haproxy.cfg" to /etc/haproxy/haproxy.cfg this file contains the configuration of our reverse proxy ( APP 1 as a Primary Server, APP 2 as a Back-up Server, SSL Certificate ).
+- The script transfert 2 files from our "LocalPc" to our Haproxy VM, "haproxy.cfg" to /etc/haproxy/haproxy.cfg this file contains the configuration of our reverse proxy ( APP 1 as a Primary Server, APP 2 as a Back-up Server, SSL Certificate ).
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/ea3d2c35-281a-45d4-98d2-674a21911e0e)
 
 
-The second file is "haproxy" to /etc/default/haproxy this file is the enable the Load Balancer's behavior.
+- The second file is "haproxy" to /etc/default/haproxy this file is the enable the Load Balancer's behavior.
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/4052f1a9-8184-4a15-b5a8-596acf5c157b)
 
@@ -127,7 +127,12 @@ The second file is "haproxy" to /etc/default/haproxy this file is the enable the
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eacdfda6-1e1b-42f1-8cff-0c5d013244d2)
 
-After this the script will transfer "pem_generate.sh" to /root/ssl/pem_generate.sh, this script is used to generate the PEM file, we'll use it later to secure our connection.
+- After this the script will transfer "pem_generate.sh" to /root/ssl/pem_generate.sh, this script is used to generate the PEM file, we'll use it later to secure our connection.
+
+- If everything went well, at the end of the installation you'll have the same result as the image bellow, showing the IP address that we should use to get access to our Application :
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/21ad760c-e5ce-4d0c-b54e-4eaea17cb6b5)
+
 
 ### 3- Explanation of "backup-script.sh" :
 
