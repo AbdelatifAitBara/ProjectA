@@ -24,10 +24,10 @@ Vagrant.configure("2") do |config|
       v.memory = ram_app
       v.cpus = cpu_app
       v.name = "app1"
-      v.customize ['createhd', '--filename', 'disk1.vdi', '--size', 1024]
-      v.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', 'disk1.vdi']
-      v.customize ['createhd', '--filename', 'disk2.vdi', '--size', (1024*6)]
-      v.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', 'disk2.vdi']
+      #v.customize ['createhd', '--filename', 'disk2.vdi', '--size', 1024]
+      #v.customize ['storageattach', :id, '--storagectl', 'IDE Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', 'disk2.vdi']
+      #v.customize ['createhd', '--filename', 'disk2.vdi', '--size', (1024*6)]
+      #v.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', 'disk2.vdi']
     end
     app1.vm.provision :shell do |shell|
       shell.path = "install_odoo.sh"

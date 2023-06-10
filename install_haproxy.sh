@@ -45,7 +45,7 @@ then
     systemctl restart haproxy.service
     echo "@reboot sleep 100 && systemctl status haproxy.service || systemctl restart haproxy.service" >> check-haproxy
     crontab check-haproxy 
-    printf "${GREEN}STEP 2: HA Proxy Has Been Installed&Configured Successfully.${NC}\n"
+    printf "${GREEN}STEP 2: HA Proxy Has Been Installed & Configured Successfully.${NC}\n"
     printf "${GREEN}To Get Access To Odoo Use: http://$(ip -f inet addr show enp0s8 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')${NC}\n"
 else
     printf "${RED}Error: During The STEP 2...${NC}\n"
