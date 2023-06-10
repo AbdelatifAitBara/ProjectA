@@ -74,7 +74,7 @@ This script will allow us to :
 * Create a Systemd Service Unit of Odoo.
 * Start Odoo.Service And Enable Automatically
 
-NOTE: The script is capable to stop the installation, if any step of 9 goes badly.
+NOTE: The script is capable to stop the installation, if any step of 10 goes badly.
 
 ### Explanation Step By Step :
 
@@ -129,21 +129,42 @@ The second file is "haproxy" to /etc/default/haproxy this file is the enable the
 
 After this the script will transfer "pem_generate.sh" to /root/ssl/pem_generate.sh, this script is used to generate the PEM file, we'll use it later to secure our connection.
 
-## LVM Solution Explanation [lvm.sh] :
+### 3- Explanation of "backup-script.sh" :
+
+### 4- Explanation of "lvm.sh" LVM Solution :
+
+This script will allow us to automate :
+
+* Creation 2 PV ( Physical Volume ), PV1 & PV2 from our 2 Vhdd that we have create using our Vagrantfile ( sdb, sdc ).
+* Creation of VG ( Volume Group ), using our 2 PV created in the Step 1.
+* Creation of LV ( Logical Volume ), using our Volume Group create in the Step 2.
+* Formatting and Mounting Our Logical Volumes.
+
+
+### Explanation Step By Step :
 
 ### STEP 1 :
 
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/cd6c41fc-dbfe-41b5-9d3e-f343812842ba)
+We use the command "pvcreate" passing 2 block devices or partitions that will be initialized as physical volumes, we have create 2 Physical Volume. 
+This command creates a physical volume header on each device and writes metadata to the device to identify it as a physical volume.
+
 
 ### STEP 2 :
 
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/9ac574fa-b8fc-4573-bce7-cbf0dd228667)
-
+The command vgcreate vg_odoo /dev/sdb /dev/sdc creates a new LVM volume group named vg_odoo and adds at least one physical volume to it
+In this case, the physical volumes are /dev/sdb and /dev/sdc.
+A volume group is a pool of storage that consists of one or more physical volumes. Multiple logical volumes can then be created in a volume group.
 
 ### STEP 3 :
 
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/18be8d21-e9a6-40aa-8a55-a859881861db)
-
+The command lvcreate --size 6G --name lv1 vg_odoo creates a new logical volume named lv1 with a size of 6GB in the volume group vg_odoo.
+The command lvcreate -l 100%FREE --name lv2 vg_odoo creates a new logical volume named lv2 that uses all the remaining free space in the volume group vg_odoo.
 
 ### STEP 4 :
+
+The commands mkfs.ext4 /dev/vg_odoo/lv1 and mkfs.ext4 /dev/vg_odoo/lv2 format the logical volumes lv1 and lv2 with the ext4 filesystem.
+The command mount /dev/vg_odoo/lv1 /var/lib/pgsql/14/backups/odoo_backup mounts the logical volume lv1 at /var/lib/pgsql/14/backups/odoo_backup.
+The command mkdir /var/lib/pgsql/14/backups/odoo_backup/saves creates a new directory named saves inside the /var/lib/pgsql/14/backups/odoo_backup directory, will be used to save our db back-up comes from our APP 1, On The APP 2.
+
+
 
