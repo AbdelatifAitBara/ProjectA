@@ -284,7 +284,7 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 
 7- The same problem when we deployed our 2 apps before HAproxy, so we had to change the order of deployement of our APPS and keep the HAproxy at the end. 
 
-8- Another problem when we tried to make the creation of our 2 vHDD, "sdb" and "sdc" automatically using Vagrant, when we used the port"0" we figured out that this port is per default used by the system "CentOS", so we had to change the port to "1", but it was not enough because we was able to create only 1 vHDD, after many changes we found that the problem is the type of vHDD, we was using VDI ( Virtual Desktop Infrastructure ) , and we changed to type to "vmdk" ( Virtual Machine Disk ).
+8- Another problem when we tried to make the creation of our 2 vHDD, "sdb" and "sdc" automatically using Vagrant, when we used the port"0" we figured out that this port is per default used by the system "CentOS", so we had to change the port to "1", but it was not enough because we was able to create only 1 vHDD, after many changes we found that the problem is the type of vHDD, we was using VDI ( Virtual Desktop Infrastructure ) ,at the end we had to change it to "vmdk" ( Virtual Machine Disk ).
 
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/71e73768-66b1-4ee4-89cf-e23f55ab4234)
