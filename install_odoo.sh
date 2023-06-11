@@ -6,7 +6,7 @@
 # Odoo V16 will use pg-14 as db and haproxy as a loadbalancer.     #
 # -Developer: DevOps Team - B - Team-B@itsgroup.fr                 #
 # -Date: 04/06/2023                                                #
-# -Version: 3.0.0                                                  #
+# -Version: 3.2.0                                                  #
 ####################################################################
 GREEN='\033[1;32m'
 RED='\033[1;31m'
@@ -16,7 +16,7 @@ NC='\033[0m'
 password="vagrant"
 
 printf "${GREEN}Please be patient, the installation will takes a few minutes...${NC}\n"
-printf "${CYAN}This Script Contains 9 STEPS To Deploy The Application Odoo Ver.16.${NC}\n"
+printf "${CYAN}This Script Contains 10 STEPS To Deploy The Application Odoo Ver.16.${NC}\n"
 
 printf "${BBlue}STEP 1: Updating and Upgrading The System...${NC}\n"
 if sudo yum -y update && sudo yum -y upgrade
@@ -159,12 +159,19 @@ else
 fi
 
 if [[ "$1" == "app2" ]];then
+    printf "${GREEN} STEP 10: We dont need to configure the LVM Configuration ...${NC}\n"
     printf "${GREEN} App2 Is ready to be used...${NC}\n"
 elif [[ "$1" == "app1" ]];then
-    printf "${BBlue} STEP 10: LVM Configuration...${NC}\n"
-    cp /vagrant/lvm.sh /home/lvm.sh 
-    sed -i -e 's/\r$//' /home/lvm.sh 
-    chmod +x /home/lvm.sh
-    bash /home/lvm.sh
+    if
+        printf "${BBlue} STEP 10: LVM Configuration...${NC}\n"
+        cp /vagrant/lvm.sh /home/lvm.sh 
+        sed -i -e 's/\r$//' /home/lvm.sh 
+        chmod +x /home/lvm.sh
+        bash /home/lvm.sh
+    then
     printf "${GREEN} STEP 10: LVM Configuration Done Successfully...${NC}\n"
+    else
+        printf "${RED}Error: During The STEP 10...${NC}\n"
+        exit 1
+    fi   
 fi

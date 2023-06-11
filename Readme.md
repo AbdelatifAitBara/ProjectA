@@ -28,7 +28,7 @@
 * Configuration of an auto signed certificate on the LoadBalancer, to secure the communications.
 * Implement an LVM storage solution to store database data, this solution should allow flexible expansion of storage space.
 
-### IMOPORTANT:
+### IMPORTANT:
 
 IP Addresses of VMs:
 * HAproxy  : 192.168.20.10
