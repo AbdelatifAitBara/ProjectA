@@ -92,9 +92,14 @@ vagrant up
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/a72ada26-b635-48c6-903e-b2af0e1701c9)
 
 
-## 
+## A- Explanation of Vagrantfile:
 
-## Scripts Explanation :
+* This file is executed when we fire the "vagrant up" command. It is responsible for creating and provisioning our VMs.
+* We create 3 VMs that run on CentOS 7, with 2048MB RAM and 2 CPU cores each. We also define their IP addresses and SSH parameters.
+* Two of them are named (= hostname) app1 and app2 and will contain our Odoo app. They are both provisioned by the install_odoo.sh file. App1 also contains 2 additional disks because we will use LVM (Logical Volume Management) on them to store our database saves later.
+* The third one named "haproxy" will be our reverse proxy that will act as a load balancer toward app1 and app2. It is provisioned by the install_haproxy.sh script.
+
+## B- Scripts Explanation :
 
 ### 1- Explanation of "install_odoo.sh" :
 
@@ -201,7 +206,16 @@ In this step our script will update and upgrade our system automatically.
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/821157cd-e143-4a6a-b5ab-1580cd93a72a)
 
 
-### 3- Explanation of "pem_generate.sh" :
+### 3- Explanation of "back-up.sh" :
+
+* This script is executed periodically thanks to a crontab job. It is responsible for database backups.
+* First, it checks if the LV partition exists.
+* If it does, it creates a dump backup file on it. If the backup fails, we will be notified through a log file.
+* It also checks if the backup folder has no more than 10 saves to avoid disk shortage. If more than 10 files are found, the older ones are deleted.
+* Then, it initiates an SSH connection to app2 and saves the backup files there. It proceeds with the same file verification as previously.
+
+
+### 4- Explanation of "pem_generate.sh" :
 
 This script will allow us to automate :
 
@@ -241,7 +255,7 @@ This script will allow us to automate :
 
 
 
-### 4- Explanation of "lvm.sh" LVM Solution :
+### 5- Explanation of "lvm.sh" LVM Solution :
 
 This script will allow us to automate :
 
@@ -284,7 +298,7 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 
 
 
-### 5- Problems that we have meet and solved during the creation of this solution :
+### 6- Problems that we have meet and solved during the creation of this solution :
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/f8c726a8-0e19-4f4d-b22d-27601eca86d9)
 
