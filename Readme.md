@@ -16,6 +16,26 @@
 - Vagrant, Download from [Here](https://developer.hashicorp.com/vagrant/downloads) ( Vagrant is an open-source software product for building and maintaining portable virtual software development environments; e.g., for VirtualBox, KVM, Hyper-V, Docker containers).
 - Git, Download from [Here](https://git-scm.com/downloads) ( It is a free and open-source version control system used to handle small to very large projects efficiently. Git is used to tracking changes in the source code, enabling multiple developers to work together on non-linear development.).
 - VirtualBox, Download from [Here](https://www.virtualbox.org/wiki/Downloads) ( Oracle VM VirtualBox is cross-platform virtualization software. It allows users to extend their existing computer to run multiple operating systems including Microsoft Windows, Mac OS X, Linux, and Oracle Solaris, at the same time).
+- Make sure that The Virtualization Technology is enabled on your machine ( If you have an Intel processor you can check that using : [Intel® Processor Identification Utility](https://www.intel.com/content/www/us/en/download/12136/intel-processor-identification-utility-windows-version.html)  ).
+
+In the example bellow **"Intel Virtualization Technology" is disabled**, so if is the case for you too try to activate it on your BIOS.
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eb981664-896a-45c1-854c-17b5b1817b15)
+
+
+If you see that "Intel Virtualization Technology" is Enabled on your BIOS but you keep seing it disabled on Intel processor identification Utility, run this command manually using (cmd.exe) and restart your PC.
+*
+
+```
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+```
+
+
+
+* Here "Intel Virtualization Technology" is **Enabled** :
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/9c4abedf-3b5c-4f04-9c10-a12a9270ac87)
+
 
 ## Project goals :
 
