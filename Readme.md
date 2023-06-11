@@ -278,11 +278,13 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 
 4- Cannot do backup as root and to resolve this, we had to replace "peer" by "trust" inside the pg config file : pg_hba.cfg.
 
-5- problem of using scripts, when we transfer them from our LocalPC to our VMs because of character $/r, we had to use “sed”
+5- When we have transferred scripts from our LocalPC to our VMs, we got character problems "/r$" so we couldn't lunch them, we figured out that editing a script on Windows and lunch it in Linux could create problems, so at the beginning we used VScode, and it works only one time, after that we got the same problem, that's why we had to use “sed”, to substitute the extra character at the end of lines.
 
 6- Deploying the app2 before the app1, we had a problem because the app 1 needs to connect with the app2 and if we lunch the app1 and the app 2 is not available it will not work.
 
-7- the same problem with whene we deployed our apps before HAproxy, so we had to change the order of deployement of our APPS and keep the HAproxy at the end. 
+7- The same problem whene we deployed our 2 apps before HAproxy, so we had to change the order of deployement of our APPS and keep the HAproxy at the end. 
+
+8- Another porblem when we tried to make the creation of our 2 vHDD, "sdb" and "sdc" automatically using Vagrant, when we used the port"0" we figured out that this port is per default used by the system "CentOS", so we had to change the port to "1", but it was not enough because we was able to create only 1 vHDD, after many changes we found that the problem is the type of vHDD, we was using VDI ( Virtual Desktop Infrastructure ) , and we changed to type to "vmdk" ( Virtual Machine Disk ).
 
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/71e73768-66b1-4ee4-89cf-e23f55ab4234)
