@@ -114,7 +114,7 @@ This script will allow us to :
 * Create a Systemd Service Unit of Odoo.
 * Enable and start Odoo.Service Automatically.
 
-NOTE: The script is capable to stop the installation, if any step of 10 goes badly.
+NOTE: The script iS programmed to stop the installation, if one of the 10 steps goes badly.
 
 ### Explanation Step By Step :
 
@@ -163,6 +163,10 @@ NOTE: The script is capable to stop the installation, if any step of 10 goes bad
 ### Step 9 : 
 
 - Finally, our script will start and enable odoo.service, if that done correctly we'll be able to see the status of our odoo.service if it is active or not, we can get the IP Address that we should use to get access to our application Odoo16.
+
+### Step 10 : 
+
+- TO-DO
 
 ### 2- Explanation of "install_haproxy.sh" :
 
