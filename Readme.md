@@ -93,24 +93,51 @@ NOTE: The script is capable to stop the installation, if any step of 10 goes bad
 
 ### Explanation Step By Step :
 
-### Step 1 : 
-In this step our script will update and upgrade our system automatically.
+### Step 1 :
+
+- In this step our script will update and upgrade our system automatically.
+
 ### Step 2 : 
-In this step the script will install some packages as (openssl, openssl-devel, wget, tar, gcc, git...ect) because we need them later, also the development tools group (acts as a transitional package for installation of multiple development, compilation and debugging tools), after it will download Python3.7 as a tar file, extract it, and install it at the end.
+
+- In this step the script will install some packages as (openssl, openssl-devel, wget, tar, gcc, git...ect) because we need them later, also the development tools group (acts as a transitional package for installation of multiple development, compilation and debugging tools), after it will download Python3.7 as a tar file, extract it, and install it at the end.
+
 ### Step 3 : 
-In this step we are installing and setting up postgresql. We are also creating the database to be used by the odoo app. Then, the script create a remote directory on app2 that will host the app backups. We also do the same on app1. We create a ssh connexion between app1 and app2 by creating a key pair and copying the public key on the authorized_keys file in app2. This way, app1 can send (or receive) files through ssh without requiring any password. Moreover, we add the backup script on app1. This script, when executed creates a backup dump file on app1 and on remote app2. It also checks if there is max 10 backup files remaining and deleting the elder ones on both apps (max 10).
+
+- In this step we are installing and setting up postgresql. We are also creating the database to be used by the odoo app. Then, the script create a remote directory on app2 that will host the app backups. We also do the same on app1. We create a ssh connexion between app1 and app2 by creating a key pair and copying the public key on the authorized_keys file in app2. This way, app1 can send (or receive) files through ssh without requiring any password. Moreover, we add the backup script on app1. This script, when executed creates a backup dump file on app1 and on remote app2. It also checks if there is max 10 backup files remaining and deleting the elder ones on both apps (max 10).
+
 ### Step 4 : 
-Our script will install WKHTMLTOX needed by Odoo,is a combination of wkhtmltopdf and wkhtmltoimage, that are open source (LGPLv3) command line tools to render HTML into PDF and various image formats using the Qt WebKit rendering engine.
+
+- Our script will install WKHTMLTOX needed by Odoo,is a combination of wkhtmltopdf and wkhtmltoimage, that are open source (LGPLv3) command line tools to render HTML into PDF and various image formats using the Qt WebKit rendering engine.
+
 ### Step 5 :  
-For security reasons, we should create a specific user for our application Odoo16, so our script will create an "user = odoo", after it will clone the application inside the home of this user, and change the owner of the application folder /opt/odoo/, from root to odoo user. 
+
+- For security reasons, we should create a specific user for our application Odoo16, so our script will create an "user = odoo", after it will clone  the application inside the home of this user, and change the owner of the application folder /opt/odoo/, from root to odoo user. 
+
 ### Step 6 : 
-Inside our application folder "/opt/odoo/", the script will create a virtual environment "Odoo-venv" to run our application Odoo16, after that it wills change the owner of "Odoo-venv", later the script will activate this virtual environment, and upgrade the pip to install the requirements of Odoo16 inside our environment, and at the end our script will deactivate the virtual environment.
+
+- Inside our application folder "/opt/odoo/", the script will create a virtual environment "Odoo-venv" to run our application Odoo16, after that it wills change the owner of "Odoo-venv", later the script will activate this virtual environment, and upgrade the pip to install the requirements of Odoo16 inside our environment, and at the end our script will deactivate the virtual environment.
+
 ### Step 7 : 
-In this step our script will create 2 folders, one for the custom addons "/opt/odoo/odoo-custom-addons", and the other for logs "/var/log/odoo", and inside of this folder a file for Odoo16 logs "/var/log/odoo/odoo.log", by the end the script will change the owner of the logs folder from "root" to "odoo" user.
+
+- In this step our script will create 2 folders, one for the custom addons "/opt/odoo/odoo-custom-addons", and the other for logs "/var/log/odoo", and inside of this folder a file for Odoo16 logs "/var/log/odoo/odoo.log", by the end the script will change the owner of the logs folder from "root" to "odoo" user.
+
 ### Step 8 : 
-The script will transfer 2 files from our "Local Pc" to our VMs, the first file is odoo service "odoo.service" to /etc/systemd/system/odoo.service , and the 2nd one is the configuration file of Odoo16 "odoo.conf" to /etc/odoo.conf.
+
+- The script will transfer 2 files from our "Local Pc" to our VMs, the first file is odoo service "odoo.service" to /etc/systemd/system/odoo.service. 
+
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/adf386b8-006d-4a10-aafe-f6bbebb5dfc4)
+
+
+
+- The 2nd one is the configuration file of Odoo16 "odoo.conf" to /etc/odoo.conf.
+
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/8e58c690-b906-41b1-b3ae-f411ed409495)
+
+
 ### Step 9 : 
-Finally, our script will start and enable odoo.service, if that done correctly we'll be able to see the status of our odoo.service if it is active or not, we can get the IP Address that we should use to get access to our application Odoo16.
+
+- Finally, our script will start and enable odoo.service, if that done correctly we'll be able to see the status of our odoo.service if it is active or not, we can get the IP Address that we should use to get access to our application Odoo16.
 
 ### 2- Explanation of "install_haproxy.sh" :
 
@@ -133,7 +160,9 @@ In this step our script will update and upgrade our system automatically.
 - The script transfert 2 files from our "LocalPc" to our Haproxy VM, "haproxy.cfg" to /etc/haproxy/haproxy.cfg this file contains the configuration of our reverse proxy ( APP 1 as a Primary Server, APP 2 as a Back-up Server, SSL Certificate ).
 
 
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/ea3d2c35-281a-45d4-98d2-674a21911e0e)
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/03bbaf1f-573c-455d-99a4-7067fe6982b6)
+
+
 
 
 - The second file is "haproxy" to /etc/default/haproxy this file is the enable the Load Balancer's behavior.
@@ -149,7 +178,8 @@ In this step our script will update and upgrade our system automatically.
 
 - If everything went well, at the end of the installation you'll have the same result as the image bellow, showing the IP address that we should use to get access to our Application :
 
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/21ad760c-e5ce-4d0c-b54e-4eaea17cb6b5)
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/821157cd-e143-4a6a-b5ab-1580cd93a72a)
+
 
 ### 3- Explanation of "pem_generate.sh" :
 
