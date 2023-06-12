@@ -57,8 +57,7 @@ dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
 **With our solution you can install OdooV16 and configure it,Haproxy,Do Back-Up everyday automatically,Generate SSL Certificate, Create LVM Solution everything just with ONE CLICK.**
 
 
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/064e88a3-e30a-4a96-8c08-9f7b1afadf8e)
-
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/5ea08939-e20c-4f7f-b4df-71fee55fe10f)
 
 ### IMPORTANT:
 
