@@ -39,11 +39,11 @@ dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
 
 ## Project goals :
 
-* Use Vagrant ( IaC software ), to automate the installation of our 3 VMs.
+* Use Vagrant ( IaC software ), to automate the installation of our 3 VMs and the 2vHDD to use them in the LVM Solution.
 * Install OdooV.16 On 2 VMs ( APP 1 and APP 2 ).
 * Install HAproxy in the 3rd machine and use it as a LoadBalancer.
 * Use the reverse proxy, to send http requests to our 2 VMs, by making the APP 1 as a master, and the 2nd one as a Slave.
-* Create Scripts to automotate the installation & configuration of this solution.
+* Create a scripts to automotate the installation & configuration of this solution.
 * Create a script to automate, the back-up of data base, from the APP 1 and send it to the APP 2 using ssh protocol.
 * Configuration of an auto signed certificate on the LoadBalancer, to secure the communications.
 * Implement an LVM storage solution to store database data, this solution should allow flexible expansion of storage space.
