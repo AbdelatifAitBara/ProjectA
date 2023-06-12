@@ -63,7 +63,7 @@ IP Addresses of VMs:
 ## How to clone the project, and install Odoo.v16 on your VMs :
 
 - Open your powershell.
-- Lunch the bellow commands in order :
+- Run the bellow commands in order :
 
 
 ```
