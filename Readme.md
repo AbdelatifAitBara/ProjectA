@@ -166,7 +166,7 @@ NOTE: The script iS programmed to stop the installation, if one of the 10 steps 
 
 ### Step 10 : 
 
-- TO-DO
+- In this step we'll create the LVM Solution on the APP 1, we do a simple check on which APP the script is runnning if is on the APP 2 we do nothing, and if is the APP 1 we move our "lvm.sh" who will allows us to create this solution automatically to our APP 1 and run it at the same time to create our 2 Logical Volumes and mount the first one on "odoo_backup".
 
 ### 2- Explanation of "install_haproxy.sh" :
 
