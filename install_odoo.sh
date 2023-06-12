@@ -149,8 +149,8 @@ fi
 
 printf "${BBlue}STEP 9: Start Odoo.Service And Enable It...${NC}\n"
 if
-systemctl start odoo.service
 systemctl enable odoo.service
+systemctl start odoo.service
 then
     systemctl status odoo.service
 else
