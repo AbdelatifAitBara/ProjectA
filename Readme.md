@@ -3,13 +3,6 @@
 
 # Deployement of Odoo v16, on CentOS 7, Using Vagrant, Virtualbox.
 
-
-## Inroduction:
-
-- Odoo is a Belgian software, is famous for its continuous advancement in the ERP domain Enterprise resource planning (ERP) is a software system that helps you run your entire business, supporting automation and processes in finance, human resources,CRM, e-commerce, billing, accounting...add more.
-
-- The latest version of Odoo is currently Odoo 16, which was released in October 2022. 
-
 ## Prerequisites:
 
 **Before starting, make sure you have the following:**
@@ -207,8 +200,6 @@ In this step our script will update and upgrade our system automatically.
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/4052f1a9-8184-4a15-b5a8-596acf5c157b)
 
 
-
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/eacdfda6-1e1b-42f1-8cff-0c5d013244d2)
 
 - After this the script will transfer "pem_generate.sh" to /root/ssl/pem_generate.sh, this script is used to generate the PEM file, we'll use it later to secure our connection.
 
