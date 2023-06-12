@@ -128,7 +128,8 @@ NOTE: The script iS programmed to stop the installation, if one of the 10 steps 
 
 ### Step 3 : 
 
-- In this step we are installing and setting up postgresql. We are also creating the database to be used by the odoo app. Then, the script create a remote directory on app2 that will host the app backups. We also do the same on app1. We create a ssh connexion between app1 and app2 by creating a key pair and copying the public key on the authorized_keys file in app2. This way, app1 can send (or receive) files through ssh without requiring any password. Moreover, we add the backup script on app1. This script, when executed creates a backup dump file on app1 and on remote app2. It also checks if there is max 10 backup files remaining and deleting the elder ones on both apps (max 10).
+- In this step we are installing and setting up postgresql. We are also creating the database to be used by the odoo app. 
+- Then we launch our "back-up.sh" to regulary save our database. 
 
 ### Step 4 : 
 
@@ -304,7 +305,7 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 
 
 
-1- We couldn't lunch python3.7 inside script ( creation of python venv using only python3.7 -m ....) doesn't work, we had to add the complet path inside the script. 
+1- We couldn't launch python3.7 inside script ( creation of python venv using only python3.7 -m ....) doesn't work, we had to add the complet path inside the script. 
 
 2- Using vagrant user to connect to our VMs made a lot of problems during the installation of our scripts because of permissions, so we had to modify our Vagrantfile to connect as a root and run all our scripts as root.
 
@@ -314,9 +315,9 @@ In this case, the physical volumes are /dev/sdb and /dev/sdc.
 
 5- Cannot do backup as root and to resolve this, we had to replace "peer" by "trust" inside the pg config file : pg_hba.cfg.
 
-6- When we have transferred scripts from our LocalPC to our VMs, we got character problems "/r$" so we couldn't lunch them, we figured out that editing a script on Windows and lunch it in Linux could create problems, so at the beginning we used VScode, and it works only one time, after that we got the same problem, that's why we had to use “sed”, to substitute the extra character at the end of lines.
+6- When we have transferred scripts from our LocalPC to our VMs, we got character problems "/r$" so we couldn't launch them, we figured out that editing a script on Windows and run it in Linux could create problems, so at the beginning we used VScode, and it works only one time, after that we got the same problem, that's why we had to use “sed”, to substitute the extra character at the end of lines.
 
-7- Deploying the app2 before the app1, we had a problem because the app 1 needs to connect with the app2 and if we lunch the app1 and the app 2 is not available it will block our installation.
+7- Deploying the app2 before the app1, we had a problem because the app 1 needs to connect with the app2 and if we launch the app1 and the app 2 is not available it will block our installation.
 
 8- The same problem when we deployed our 2 apps before HAproxy, so we had to change the order of deployement of our APPS and keep the HAproxy at the end. 
 
