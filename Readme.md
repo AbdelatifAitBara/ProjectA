@@ -33,7 +33,7 @@ dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
 ## Collaborators:
 
 * [Abdelatif Ait Bara](https://github.com/AbdelatifAitBara)
-* [Kevin](https://github.com/pittour)
+* [Kevin B](https://github.com/pittour)
 * c
 * d
 
