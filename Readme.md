@@ -49,14 +49,18 @@ dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
 * Configuration of an auto signed certificate on the LoadBalancer, to secure the communications.
 * Implement an LVM storage solution to store database data, this solution should allow flexible expansion of storage space.
 
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/62048af5-7cb6-40dc-9100-f47ae1b3f7fb)
+
+**With our solution you can install OdooV16 and configure it,Haproxy,Do Back-Up everyday automatically,Generate SSL Certificate, Create LVM Solution everything just by ONE CLICK.**
+
 ### IMPORTANT:
 
 IP Addresses of VMs:
 * HAproxy  : 192.168.20.10
-* APP 1 : 192.168.20.11
-* APP 2 : 192.168.20.12
+* APP 1    : 192.168.20.11
+* APP 2    : 192.168.20.12
 
-## How to clone the project, and install Odoo.v16 in your VM:
+## How to clone the project, and install Odoo.v16 on your VMs :
 
 - Open your powershell.
 - Lunch the bellow commands in order :
@@ -95,7 +99,7 @@ vagrant up
 
 ## A- Explanation of Vagrantfile:
 
-* This file is executed when we fire the "vagrant up" command. It is responsible for creating and provisioning our VMs.
+* This file is executed when we run the "vagrant up" command. It is responsible for creating and provisioning our VMs.
 * We create 3 VMs that run on CentOS 7, with 2048MB RAM and 2 CPU cores each. We also define their IP addresses and SSH parameters.
 * Two of them are named (= hostname) app1 and app2 and will contain our Odoo app. They are both provisioned by the install_odoo.sh file. App1 also contains 2 additional disks because we will use LVM (Logical Volume Management) on them to store our database saves later.
 * The third one named "haproxy" will be our reverse proxy that will act as a load balancer toward app1 and app2. It is provisioned by the install_haproxy.sh script.
@@ -110,10 +114,12 @@ This script will allow us to :
 * Install Python3.7 Packages And Libraries. 
 * Install Postgresql-14 client and server.
 * Install WKHTMLTOX.
+* Install Odoo ERP.
 * Create And Activate A Python Virtual Environment To Run Odoo Software.
 * Do the Post Configuration of Odoo Automatically.
 * Create a Systemd Service Unit of Odoo.
 * Enable and start Odoo.Service Automatically.
+* Creation of LVM Solution.
 
 NOTE: The script iS programmed to stop the installation, if one of the 10 steps goes badly.
 
