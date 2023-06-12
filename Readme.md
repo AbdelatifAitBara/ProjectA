@@ -237,8 +237,6 @@ This script will allow us to automate :
 
 - mydomain.crt : is a file that contains the SSL/TLS certificate content,SSL/TLS certificates establish an encrypted connection between a website/server and a browser with what's known as an "SSL handshake",The certificate contains information about the identity of the certificate/website owner, which is called the "subject".
 
-- rootCA.key   : refers to the private key of a root certificate authority (CA), a root certificate is a public key certificate that identifies a root certificate authority (CA).
-
 ### IMPORTANT :
 
 - Self-signed certificates and certificates signed by a Certificate Authority (CA) are both used to provide encryption for data in motion, but there are some differences between them. Here are some key points from the search results:
