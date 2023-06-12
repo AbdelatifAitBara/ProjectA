@@ -3,13 +3,6 @@
 
 # Deployement of Odoo v16, on CentOS 7, Using Vagrant, Virtualbox.
 
-
-## Inroduction:
-
-- Odoo is a Belgian software, is famous for its continuous advancement in the ERP domain Enterprise resource planning (ERP) is a software system that helps you run your entire business, supporting automation and processes in finance, human resources,CRM, e-commerce, billing, accounting...add more.
-
-- The latest version of Odoo is currently Odoo 16, which was released in October 2022. 
-
 ## Prerequisites:
 
 **Before starting, make sure you have the following:**
