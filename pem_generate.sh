@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 if [ "$#" -ne 1 ]
 then
@@ -9,13 +9,7 @@ fi
 
 DOMAIN=$1
 
-# Create root CA & Private key
-
-openssl req -x509 -sha256 -days 356 -nodes -newkey rsa:2048 -subj "/CN=Odoo16/C=FR/L=Lyon" -keyout rootCA.key -out rootCA.crt
-
-# Generate Private key
-
-openssl genrsa -out ${DOMAIN}.key 2048
+openssl genrsa -out "${DOMAIN}.key" 2048
 
 # Create csf conf
 
@@ -28,12 +22,12 @@ req_extensions = req_ext
 distinguished_name = dn
 
 [ dn ]
-C = FR
-ST = RHONE
-L = LYON
-O = ITSGROUP
-OU = ITSSERVICE
-CN = ${DOMAIN}
+C = "FR"
+ST = "RHONE"
+L = "LYON"
+O = "ITSGROUP"
+OU = "ITSSERVICE"
+CN = "${DOMAIN}"
 
 [ req_ext ]
 subjectAltName = @alt_names
@@ -48,29 +42,18 @@ EOF
 
 # create CSR request using private key
 
-openssl req -new -key ${DOMAIN}.key -out ${DOMAIN}.csr -config csr.conf
-
-# Create a external config file for the certificate
-
-cat > cert.conf <<EOF
-
-authorityKeyIdentifier=keyid,issuer
-basicConstraints=CA:FALSE
-keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
-subjectAltName = @alt_names
-
-[alt_names]
-DNS.1 = ${DOMAIN}
-
-EOF
+openssl req -new -key "${DOMAIN}.key" -out "${DOMAIN}.csr" -config csr.conf
 
 # Create SSl with self signed CA
 
-openssl x509 -req -in ${DOMAIN}.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out ${DOMAIN}.crt -days 365 -sha256 -extfile cert.conf
+openssl x509 -req \
+    -in "${DOMAIN}.csr" \
+    -signkey "${DOMAIN}.key" \
+    -days 365 \
+    -sha256 \
+    -out "${DOMAIN}.crt"
 
 
 # Generate the pem file
 
-cat mydomain.key mydomain.crt rootCA.key > mydomain.pem
-
-rm -f cert.conf mydomain.crt mydomain.key rootCA.crt rootCA.srl csr.conf mydomain.csr rootCA.key
+cat "${DOMAIN}.key" "${DOMAIN}.crt" >> "${DOMAIN}.pem"

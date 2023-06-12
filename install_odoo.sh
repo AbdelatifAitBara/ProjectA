@@ -55,7 +55,7 @@ sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
 systemctl enable postgresql-14.service
 systemctl start postgresql-14.service
 su - postgres -c "createuser -s odoo"
-su - postgres -c "createdb test1"
+su - postgres -c "createdb $1"
 sed -i 's/peer/trust/g' /var/lib/pgsql/14/data/pg_hba.conf
 systemctl restart postgresql-14.service
 if [[ "$1" == "app2" ]];then
