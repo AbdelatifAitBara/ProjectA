@@ -34,7 +34,7 @@ dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
 
 * [Abdelatif Ait Bara](https://github.com/AbdelatifAitBara)
 * [Kevin B](https://github.com/pittour)
-* c
+* [Yacine Ben Hamida](https://github.com/Yac19)
 * d
 
 ## Project Context :
