@@ -6,8 +6,9 @@
 
 ## Inroduction:
 
-- Odoo is a Belgian suite of business management software tools including, for example, CRM, e-commerce, billing, accounting, manufacturing, warehouse, project management, and inventory management.
-- Odoo is famous for its continuous advancement in the ERP domain, always presenting user-friendly upgrades to its users. The latest version of Odoo is currently Odoo 16, which was released in October 2022. 
+- Odoo is a Belgian software, is famous for its continuous advancement in the ERP domain Enterprise resource planning (ERP) is a software system that helps you run your entire business, supporting automation and processes in finance, human resources,CRM, e-commerce, billing, accounting...add more.
+
+- The latest version of Odoo is currently Odoo 16, which was released in October 2022. 
 
 ## Prerequisites:
 
