@@ -30,6 +30,16 @@ dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
 
 ![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/9c4abedf-3b5c-4f04-9c10-a12a9270ac87)
 
+## Collaborators:
+
+* [Abdelatif Ait Bara](https://github.com/AbdelatifAitBara)
+* [Kevin](https://github.com/pittour)
+* c
+* d
+
+## Project Context :
+
+- This group project is the first one of the DevOps Factory training program. After acquiring basic knowledge of Linux, Python and Bash, we had 8 days to set up a fully automated installation script.
 
 ## Project goals :
 
