@@ -136,6 +136,9 @@ NOTE: The script iS programmed to stop the installation, if one of the 10 steps 
 - In this step we are installing and setting up postgresql. We are also creating the database to be used by the odoo app. 
 - Then we launch our "back-up.sh" to regulary save our database. 
 
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/690875aa-1612-4ded-b284-da3637e75e38)
+
+
 ### Step 4 : 
 
 - Our script will install WKHTMLTOX needed by Odoo,is a combination of wkhtmltopdf and wkhtmltoimage, that are open source (LGPLv3) command line tools to render HTML into PDF and various image formats using the Qt WebKit rendering engine.
