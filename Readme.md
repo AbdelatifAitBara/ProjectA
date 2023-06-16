@@ -134,7 +134,7 @@ NOTE: The script iS programmed to stop the installation, if one of the 10 steps 
 - In this step we are installing and setting up postgresql. We are also creating the database to be used by the odoo app. 
 - Then we launch our "back-up.sh" to regulary save our database. 
 
-![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/690875aa-1612-4ded-b284-da3637e75e38)
+![image](https://github.com/AbdelatifAitBara/ProjectA/assets/82835348/4109af0d-50c6-46c5-9bc7-43e2eec80781)
 
 
 ### Step 4 : 
